@@ -1,0 +1,35 @@
+.chooseArtists {
+  margin: 50px auto;
+  padding: 100px 10px;
+  border-top: 2px dashed var(--text-dark);
+  border-bottom: 2px dashed var(--text-dark);
+  text-align: center;
+}
+.groupArtists {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.groupArtists img {
+  width: 70px !important;
+}
+.groupArtists span:nth-child(1) {
+  margin-right: -15px !important;
+}
+.groupArtists span:nth-child(2) {
+  margin-right: -15px !important;
+}
+.groupArtists span:nth-child(3) img {
+  width: 100px !important;
+  z-index: 3;
+}
+.groupArtists span:nth-child(4) {
+  margin-left: -15px !important;
+  z-index: 2;
+}
+.groupArtists span:nth-child(5) {
+  margin-left: -15px !important;
+}
+.marginVertical {
+  margin: 20px auto;
+}

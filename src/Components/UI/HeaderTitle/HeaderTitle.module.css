@@ -1,0 +1,6 @@
+.headerTitle {
+  font-weight: 900;
+  font-size: 18px;
+  padding: 20px 20px 20px 0;
+  color: var(--text-dark);
+}

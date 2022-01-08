@@ -52,7 +52,7 @@ const post = {
     'https://dl.musicisho.com/singles/0010/Reza Sadeghi - Bemooni Baram [128].mp3',
   videoUrl:
     'https://dl.musicisho.com/videos/0010/Reza Sadeghi - Bemooni Baram.mp4',
-  alreadyLiked: false,
+  liked: false,
 };
 
 const Single = (props) => {
@@ -64,7 +64,7 @@ const Single = (props) => {
         icon={mdiChevronLeft}
         size={1.5}
         onClick={() => router.back()}
-        style={{ marginTop: 50, marginLeft: 30 }}
+        style={{ marginTop: 20, marginLeft: 10 }}
       />
       <div className={classes.container}>
         <MusicPlayerContainer post={post} />

@@ -11,7 +11,6 @@ import BigText from '../../../../Shared/Text/BigText/BigText';
 import { stringToSlug } from '../../../../../functions/stringToSlug';
 
 const ArtistsModal = ({ artists, close }) => {
-  console.log(artists);
   return (
     <Modal title="Artists" close={close}>
       {artists.map((artist) => (

@@ -1,0 +1,21 @@
+.profileContainer {
+  width: 100%;
+  margin: auto;
+  max-width: 400px;
+}
+.profileImageContainer {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+.artistInfoFav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px auto;
+}
+@media screen and (min-width: 1024px) {
+  .profileContainer {
+    margin: 0 50px;
+  }
+}

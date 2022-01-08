@@ -7,8 +7,6 @@ import {
 
 import classes from './SongInfoDlFav.module.css';
 
-import LikeButton from '../../../Shared/Button/LikeButton/LikeButton';
-import DownloadButton from '../../../Shared/Button/DownloadButton/DownloadButton';
 import IconButton from '../../../Shared/Button/IconButton/IconButton';
 import BigText from '../../../Shared/Text/BigText/BigText';
 import NormalText from '../../../Shared/Text/NormalText/NormalText';
@@ -46,7 +44,8 @@ const SongInfoDlFav = ({ post }) => {
         </h1>
       </div>
       <IconButton
-        icon={mdiCardsHeartOutline}
+        icon={post.liked ? mdiCardsHeart : mdiCardsHeartOutline}
+        color={post.liked ? 'var(--primary-500)' : 'var(--text-300)'}
         onClick={() => console.log('like clicked')}
       />
     </div>

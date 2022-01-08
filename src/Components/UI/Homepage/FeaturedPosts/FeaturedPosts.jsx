@@ -3,7 +3,7 @@ import React from 'react';
 import classes from './FeaturedPosts.module.css';
 
 import HeaderTitle from '../../Shared/HeaderTitle/HeaderTitle';
-import SquarePost from './SquarePost/SquarePost';
+import SquarePost from '../../Shared/SquarePost/SquarePost';
 
 const FeaturedPosts = (props) => {
   const posts = [

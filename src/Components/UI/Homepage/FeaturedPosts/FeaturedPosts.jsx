@@ -33,11 +33,13 @@ const FeaturedPosts = (props) => {
   return (
     <section className={classes.featuredPosts}>
       <HeaderTitle>Featured</HeaderTitle>
-      <div className={classes.posts}>
+      <ul className={classes.posts}>
         {posts.map((post) => (
-          <SquarePost key={post.id} post={post} />
+          <li key={post.id}>
+            <SquarePost post={post} />
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 };

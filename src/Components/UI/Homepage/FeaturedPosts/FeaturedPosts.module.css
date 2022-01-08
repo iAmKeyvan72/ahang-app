@@ -6,3 +6,10 @@
   display: flex;
   flex-wrap: wrap;
 }
+.posts li {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 200px;
+}

@@ -1,0 +1,8 @@
+.nextUpSongsContainer {
+  padding-left: 20px;
+  flex-grow: 1;
+}
+.nextUpSongsContainer ul {
+  padding: 10px 0;
+  border-top: 1px solid var(--text-dark);
+}

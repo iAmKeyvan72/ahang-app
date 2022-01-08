@@ -1,0 +1,25 @@
+.songActionBox {
+  background-color: var(--background-700);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 20px 0;
+  margin: 50px auto 30px;
+  max-width: 500px;
+}
+.songActionBox li {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.songActionBox li:not(:last-child)::after {
+  position: absolute;
+  right: 0;
+  content: ' ';
+  border-right: 1px solid var(--text-400);
+  opacity: 0.2;
+  height: 70%;
+}

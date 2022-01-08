@@ -1,5 +1,5 @@
-import App from '../src/Components/App/App';
+import Layout from '../src/Components/Layout/Layout';
 
-export default function Home() {
-  return <App />;
+export default function index() {
+  return <Layout page="homepage" />;
 }

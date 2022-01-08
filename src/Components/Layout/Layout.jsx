@@ -2,12 +2,13 @@ import React from 'react';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import App from '../App/App';
 
-const Layout = ({ children }) => {
+const Layout = ({ page }) => {
   return (
     <>
       <Header />
-      {children}
+      <App page={page} />
       <Footer />
     </>
   );

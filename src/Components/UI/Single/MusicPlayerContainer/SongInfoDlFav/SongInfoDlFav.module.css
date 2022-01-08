@@ -1,0 +1,15 @@
+.songInfoDlFav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.songInfo h1 a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.songInfo h1 span:nth-child(2) {
+  font-weight: 300;
+}

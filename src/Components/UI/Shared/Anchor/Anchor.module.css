@@ -1,0 +1,21 @@
+.a {
+  display: block;
+}
+.btn {
+  padding: 10px 16px;
+  display: block;
+  text-align: center;
+  width: fit-content;
+  margin: auto;
+}
+.curvedBtn {
+  border-radius: 100px;
+}
+.primary {
+  background-color: var(--primary-500);
+  color: var(--text-100);
+}
+.secondary {
+  background-color: var(--text-100);
+  color: var(--background-900);
+}

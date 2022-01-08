@@ -1,0 +1,9 @@
+.featuredAlbums {
+  margin: 50px auto;
+  overflow: hidden;
+  padding: 0 20px;
+}
+.fixHeight {
+  /* height: 350px; */
+  overflow: visible !important;
+}

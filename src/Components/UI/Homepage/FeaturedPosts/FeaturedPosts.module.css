@@ -1,0 +1,8 @@
+.featuredPosts {
+  padding: 20px;
+  margin: 50px auto;
+}
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+}

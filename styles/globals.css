@@ -150,7 +150,7 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   background-color: var(--background-900);
-  color: var(--text-100);
+  color: var(--text-200);
 }
 
 a {

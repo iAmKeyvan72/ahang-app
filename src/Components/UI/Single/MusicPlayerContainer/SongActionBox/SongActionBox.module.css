@@ -8,18 +8,19 @@
   margin: 50px auto 30px;
   max-width: 500px;
 }
-.songActionBox li {
-  width: 100%;
+.songActionBox > button,
+.songActionBox > a {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  margin: auto;
 }
-.songActionBox li:not(:last-child)::after {
+/* .songActionBox button:not(:last-child)::after {
   position: absolute;
   right: 0;
   content: ' ';
   border-right: 1px solid var(--text-400);
   opacity: 0.2;
   height: 70%;
-}
+} */

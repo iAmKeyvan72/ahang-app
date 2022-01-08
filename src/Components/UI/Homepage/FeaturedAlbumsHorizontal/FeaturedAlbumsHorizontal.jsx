@@ -1,9 +1,10 @@
 import React from 'react';
+
+import classes from './FeaturedAlbumsHorizontal.module.css';
+
 import HeaderTitle from '../../Shared/HeaderTitle/HeaderTitle';
 import HorizontalCarousel from '../../Shared/HorizontalCarousel/HorizontalCarousel';
 import SquareAlbum from './SquareAlbum/SquareAlbum';
-
-import classes from './FeaturedAlbumsHorizontal.module.css';
 
 const FeaturedAlbumsHorizontal = (props) => {
   const sliderConfig = {

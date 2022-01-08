@@ -2,27 +2,33 @@ import React from 'react';
 
 import classes from './MusicPlayerContainer.module.css';
 
-import Image from '../../Shared/Image/Image';
-
-import { stringToSlug } from '../../../functions/stringToSlug';
+import DynamicShadowImage from '../../Shared/DynamicShadowImage/DynamicShadowImage';
 import SongInfoDlFav from './SongInfoDlFav/SongInfoDlFav';
 import SongActionBox from './SongActionBox/SongActionBox';
 
-const MusicPlayerContainer = (props) => {
+import { stringToSlug } from '../../../functions/stringToSlug';
+
+const MusicPlayerContainer = ({ post }) => {
+  let artistsEnList = [];
+  for (const artist of post.artists) {
+    artistsEnList.push(artist.enName);
+  }
+  const artistEnStr = artistsEnList.join(' & ');
+
   return (
     <div className={classes.musicPlayerContainer}>
       <div className={classes.contentsWrapper}>
         <div className={classes.coverContainer}>
-          <Image
-            src="/images/temp/singles/Ali Yasini - Cheraghooni.jpg"
-            alt="Ali Yasini - Cheraghooni"
+          <DynamicShadowImage
+            src={post.coverImage}
+            alt={`${artistEnStr} - ${post.enName}`}
             width={400}
             height={400}
             layout="responsive"
           />
         </div>
 
-        <SongInfoDlFav />
+        <SongInfoDlFav post={post} />
 
         <div className="playerController">Here is controller</div>
         <SongActionBox />

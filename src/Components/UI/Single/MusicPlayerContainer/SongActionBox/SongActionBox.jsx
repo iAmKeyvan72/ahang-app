@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 
 import classes from './SongActionBox.module.css';
 
@@ -8,7 +8,25 @@ import AddToPlaylistIconButton from '../../../Shared/Button/AddToPlaylistIconBut
 import LyricsIconButton from '../../../Shared/Button/LyricsIconButton/LyricsIconButton';
 import ShareIconButton from '../../../Shared/Button/ShareIconButton/ShareIconButton';
 
+const actionsReducer = (state, action) => {
+  switch (action.type) {
+    case 'showArtistsModal':
+      return { ...state, showArtistModal: true };
+      break;
+
+    default:
+      break;
+  }
+};
+
 const SongActionBox = (props) => {
+  const [actions, dispatch] = useReducer({
+    artists: 'post.artists',
+
+    lyrics: { props },
+    videoUrl: null,
+  });
+
   return (
     <ul className={classes.songActionBox}>
       <li>

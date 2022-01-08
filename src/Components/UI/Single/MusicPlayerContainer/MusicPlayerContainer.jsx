@@ -2,18 +2,18 @@ import React from 'react';
 
 import classes from './MusicPlayerContainer.module.css';
 
-import Image from '../../Shared/Image/Image';
-
-import { stringToSlug } from '../../../functions/stringToSlug';
+import DynamicShadowImage from '../../Shared/DynamicShadowImage/DynamicShadowImage';
 import SongInfoDlFav from './SongInfoDlFav/SongInfoDlFav';
 import SongActionBox from './SongActionBox/SongActionBox';
+
+import { stringToSlug } from '../../../functions/stringToSlug';
 
 const MusicPlayerContainer = (props) => {
   return (
     <div className={classes.musicPlayerContainer}>
       <div className={classes.contentsWrapper}>
         <div className={classes.coverContainer}>
-          <Image
+          <DynamicShadowImage
             src="/images/temp/singles/Ali Yasini - Cheraghooni.jpg"
             alt="Ali Yasini - Cheraghooni"
             width={400}

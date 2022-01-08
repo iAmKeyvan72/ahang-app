@@ -1,0 +1,31 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modalBox {
+  background-color: var(--background-900);
+  color: var(--text-100);
+  padding: 0 20px 50px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 80%;
+  margin: auto;
+}
+.modalHeader {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modalContent {
+  max-height: 75vh;
+  overflow-y: scroll;
+}

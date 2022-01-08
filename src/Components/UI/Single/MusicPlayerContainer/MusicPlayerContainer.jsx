@@ -31,7 +31,7 @@ const MusicPlayerContainer = ({ post }) => {
         <SongInfoDlFav post={post} />
 
         <div className="playerController">Here is controller</div>
-        <SongActionBox />
+        <SongActionBox post={post} />
       </div>
     </div>
   );

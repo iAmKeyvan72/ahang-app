@@ -1,10 +1,12 @@
 import React from 'react';
+import { useRouter } from 'next/router';
+import { mdiChevronLeft } from '@mdi/js';
 
 import classes from './Single.module.css';
 
-import BackButton from '../Shared/Button/BackButton/BackButton';
 import MusicPlayerContainer from './MusicPlayerContainer/MusicPlayerContainer';
 import NextUpListContainer from './NextUpListContainer/NextUpListContainer';
+import IconButton from '../Shared/Button/IconButton/IconButton';
 
 const post = {
   faName: 'بمونی برام',
@@ -54,9 +56,16 @@ const post = {
 };
 
 const Single = (props) => {
+  const router = useRouter();
+
   return (
     <>
-      <BackButton />
+      <IconButton
+        icon={mdiChevronLeft}
+        size={1.5}
+        onClick={() => router.back()}
+        style={{ marginTop: 50, marginLeft: 30 }}
+      />
       <div className={classes.container}>
         <MusicPlayerContainer post={post} />
         <NextUpListContainer />

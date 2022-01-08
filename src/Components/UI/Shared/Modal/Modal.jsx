@@ -1,24 +1,21 @@
 import React from 'react';
+import Icon from '@mdi/react';
+import { mdiClose } from '@mdi/js';
 
 import classes from './Modal.module.css';
 
 import HeaderTitle from '../../Shared/HeaderTitle/HeaderTitle';
-import CloseButton from '../../Shared/Button/CloseButton/CloseButton';
+import IconButton from '../Button/IconButton/IconButton';
 
-const Modal = (props) => {
+const Modal = ({ title, close, children }) => {
   return (
-    <aside>
-      <div className={classes.modalHeader}>
-        <HeaderTitle>Title</HeaderTitle>
-        <CloseButton />
-      </div>
-      <div className={classes.modalContent}>
-        Adipisicing esse amet ex tempor ex cillum pariatur. Dolore reprehenderit
-        officia laboris Lorem commodo laboris officia fugiat fugiat duis laborum
-        pariatur anim. Incididunt enim excepteur velit magna occaecat anim sunt
-        enim id velit et sunt dolore commodo. Sint in minim in exercitation
-        reprehenderit elit voluptate ut. Culpa aliqua ex pariatur consequat
-        velit ad magna anim labore cillum officia duis veniam laborum.
+    <aside className={classes.modal}>
+      <div className={classes.modalBox}>
+        <div className={classes.modalHeader}>
+          <HeaderTitle>{title}</HeaderTitle>
+          <IconButton icon={mdiClose} onClick={close} />
+        </div>
+        <div className={classes.modalContent}>{children}</div>
       </div>
     </aside>
   );

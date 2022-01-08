@@ -8,21 +8,27 @@ import SongActionBox from './SongActionBox/SongActionBox';
 
 import { stringToSlug } from '../../../functions/stringToSlug';
 
-const MusicPlayerContainer = (props) => {
+const MusicPlayerContainer = ({ post }) => {
+  let artistsEnList = [];
+  for (const artist of post.artists) {
+    artistsEnList.push(artist.enName);
+  }
+  const artistEnStr = artistsEnList.join(' & ');
+
   return (
     <div className={classes.musicPlayerContainer}>
       <div className={classes.contentsWrapper}>
         <div className={classes.coverContainer}>
           <DynamicShadowImage
-            src="/images/temp/singles/Ali Yasini - Cheraghooni.jpg"
-            alt="Ali Yasini - Cheraghooni"
+            src={post.coverImage}
+            alt={`${artistEnStr} - ${post.enName}`}
             width={400}
             height={400}
             layout="responsive"
           />
         </div>
 
-        <SongInfoDlFav />
+        <SongInfoDlFav post={post} />
 
         <div className="playerController">Here is controller</div>
         <SongActionBox />

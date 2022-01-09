@@ -14,14 +14,9 @@ const ArtistsModal = ({ artists, close }) => {
   return (
     <Modal title="Artists" close={close}>
       {artists.map((artist) => (
-        <Anchor
-          href={'/artists/' + stringToSlug(`${artist.enName}`)}
-          key={artist.id}
-        >
+        <Anchor href={'/artists/' + stringToSlug(`${artist}`)} key={artist}>
           <div className={classes.artistContainer}>
-            <BigText style={{ color: 'var(--text-300)' }}>
-              {artist.enName}
-            </BigText>
+            <BigText style={{ color: 'var(--text-300)' }}>{artist}</BigText>
             <Icon path={mdiChevronRight} size={1.1} color="var(--text-300)" />
           </div>
         </Anchor>

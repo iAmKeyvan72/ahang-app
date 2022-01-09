@@ -9,10 +9,8 @@ import SongActionBox from './SongActionBox/SongActionBox';
 import { stringToSlug } from '../../../functions/stringToSlug';
 
 const MusicPlayerContainer = ({ post }) => {
-  let artistsEnList = [];
-  for (const artist of post.artists) {
-    artistsEnList.push(artist.enName);
-  }
+  const { artistsEnList, enName, coverImage } = post;
+
   const artistEnStr = artistsEnList.join(' & ');
 
   return (
@@ -20,8 +18,8 @@ const MusicPlayerContainer = ({ post }) => {
       <div className={classes.contentsWrapper}>
         <div className={classes.coverContainer}>
           <DynamicShadowImage
-            src={post.coverImage}
-            alt={`${artistEnStr} - ${post.enName}`}
+            src={coverImage}
+            alt={`${artistEnStr} - ${enName}`}
             width={400}
             height={400}
             layout="responsive"

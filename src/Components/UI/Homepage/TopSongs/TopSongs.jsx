@@ -1,98 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import classes from './TopSongs.module.css';
+
+import { SingleTracksContext } from '../../../../Contexts/SingleTracksContext';
 
 import HeaderTitle from '../../Shared/HeaderTitle/HeaderTitle';
 import RowPost from '../../Shared/RowPost/RowPost';
 import HorizontalCarousel from '../../Shared/HorizontalCarousel/HorizontalCarousel';
 
 const TopSongs = (props) => {
-  const posts = [
-    {
-      id: 0,
-      artist: 'Behzad Leito',
-      song: 'Residam Tash',
-      image: '/images/temp/singles/Leito Residam Tash.jpg',
-      url: '#',
-    },
-    {
-      id: 1,
-      artist: 'Sina Mafee',
-      song: 'Nemigzare',
-      image: '/images/temp/singles/Sina Mafee Nemigzare.jpg',
-      url: '#',
-    },
-    {
-      id: 2,
-      artist: 'EpiCure',
-      song: 'Baba Karam',
-      image: '/images/temp/singles/epicure-babakaram.jpg',
-      url: '#',
-    },
-    {
-      id: 3,
-      artist: 'Behzad Leito',
-      song: 'Residam Tash',
-      image: '/images/temp/singles/Leito Residam Tash.jpg',
-      url: '#',
-    },
-    {
-      id: 4,
-      artist: 'Sina Mafee',
-      song: 'Nemigzare',
-      image: '/images/temp/singles/Sina Mafee Nemigzare.jpg',
-      url: '#',
-    },
-    {
-      id: 5,
-      artist: 'EpiCure',
-      song: 'Baba Karam',
-      image: '/images/temp/singles/epicure-babakaram.jpg',
-      url: '#',
-    },
-    {
-      id: 6,
-      artist: 'Behzad Leito',
-      song: 'Residam Tash',
-      image: '/images/temp/singles/Leito Residam Tash.jpg',
-      url: '#',
-    },
-    {
-      id: 7,
-      artist: 'Sina Mafee',
-      song: 'Nemigzare',
-      image: '/images/temp/singles/Sina Mafee Nemigzare.jpg',
-      url: '#',
-    },
-    {
-      id: 8,
-      artist: 'EpiCure',
-      song: 'Baba Karam',
-      image: '/images/temp/singles/epicure-babakaram.jpg',
-      url: '#',
-    },
-    {
-      id: 9,
-      artist: 'Behzad Leito',
-      song: 'Residam Tash',
-      image: '/images/temp/singles/Leito Residam Tash.jpg',
-      url: '#',
-    },
-    {
-      id: 10,
-      artist: 'Sina Mafee',
-      song: 'Nemigzare',
-      image: '/images/temp/singles/Sina Mafee Nemigzare.jpg',
-      url: '#',
-    },
-    {
-      id: 11,
-      artist: 'EpiCure',
-      song: 'Baba Karam',
-      image: '/images/temp/singles/epicure-babakaram.jpg',
-      url: '#',
-    },
-  ];
+  const { singleTracksList: posts } = useContext(SingleTracksContext);
 
   const sliderConfig = {
     breakpoints: {

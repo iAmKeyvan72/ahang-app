@@ -12,10 +12,3 @@
   align-items: center;
   flex-wrap: wrap;
 }
-.songsList li {
-  width: 50%;
-  max-width: 200px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}

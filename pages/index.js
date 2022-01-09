@@ -1,5 +1,9 @@
+import React from 'react';
+
 import Layout from '../src/Components/Layout/Layout';
 
-export default function index() {
+const Index = () => {
   return <Layout page="homepage" />;
-}
+};
+
+export default Index;

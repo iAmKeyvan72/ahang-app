@@ -1,0 +1,48 @@
+.mobileNavContainer {
+  width: 80%;
+  position: fixed;
+  bottom: 20px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  border-radius: 20px;
+  background-color: var(--background-700);
+  box-shadow: 0 2px 20px var(--background-700);
+  z-index: 2;
+}
+.mobileNavContainer ul {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+}
+.mobileNavContainer li {
+  position: relative;
+  transition: all 0.3s ease-out;
+}
+.mobileNavContainer a,
+.mobileNavContainer button {
+  padding: 15px 10px;
+}
+.mobileNavContainer li.active a,
+.mobileNavContainer li.active button {
+  padding-bottom: 20px;
+}
+.mobileNavContainer li::after {
+  content: ' ';
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  margin: auto;
+  border-radius: 50%;
+  background-color: var(--background-700);
+}
+.mobileNavContainer li.active::after {
+  bottom: 15px;
+  background-color: var(--primary-500);
+}

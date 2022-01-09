@@ -27,12 +27,6 @@ const Single = () => {
 
   return (
     <>
-      <IconButton
-        icon={mdiChevronLeft}
-        size={1.5}
-        onClick={() => router.back()}
-        style={{ marginTop: 20, marginLeft: 10 }}
-      />
       <div className={classes.container}>
         <MusicPlayerContainer post={post} />
         <NextUpListContainer />

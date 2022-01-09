@@ -1,0 +1,50 @@
+.desktopNavbar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+.desktopNavbar.fixedBack {
+  position: sticky;
+  top: 0;
+  background: transparent;
+  background: linear-gradient(
+    0deg,
+    rgba(23, 26, 32, 0) 0%,
+    rgba(23, 26, 32, 0.6) 50%,
+    rgba(23, 26, 32, 0.8) 100%
+  );
+  transition: 0.3s ease-in;
+  z-index: 5;
+}
+.logoAndButtonsContainer {
+  flex-grow: 1.5;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.actionButtons {
+  padding: 0 20px;
+}
+.logoContainer {
+  display: block;
+}
+.navigationLinks {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+.navigationLinks a {
+  display: block;
+  padding: 20px;
+}
+@media screen and (min-width: 1024px) {
+  .logoAndButtonsContainer {
+    justify-content: space-between;
+  }
+}

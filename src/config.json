@@ -1,0 +1,5 @@
+{
+  "endpoints": {
+    "getLatestPosts": "https://musicisho.com/wp-json/wp/v2/posts"
+  }
+}

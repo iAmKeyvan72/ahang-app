@@ -4,10 +4,10 @@ import Homepage from '../UI/Homepage/Homepage';
 import Single from '../UI/Single/Single';
 import Artist from '../UI/Artist/Artist';
 
-const App = ({ page, children }) => {
+const App = ({ page, data, children }) => {
   switch (page) {
     case 'homepage':
-      return <Homepage />;
+      return <Homepage singles={data} />;
 
     case 'single':
       return <Single />;

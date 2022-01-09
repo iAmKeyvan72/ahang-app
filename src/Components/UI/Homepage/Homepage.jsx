@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { SingleTracksContextProvider } from '../../../Contexts/SingleTracksContext';
+
 import TopHomeBanner from './TopHomeBanner/TopHomeBanner';
 import PlaylistsHorizontal from './PlaylistsHorizontal/PlaylistsHorizontal';
 import FeaturedPosts from './FeaturedPosts/FeaturedPosts';
@@ -10,11 +12,13 @@ import FeaturedAlbumsHorizontal from './FeaturedAlbumsHorizontal/FeaturedAlbumsH
 const Homepage = (props) => {
   return (
     <>
-      <TopHomeBanner />
+      <SingleTracksContextProvider>
+        <TopHomeBanner posts={props.singles} />
+      </SingleTracksContextProvider>
       <PlaylistsHorizontal />
-      <FeaturedPosts />
+      <FeaturedPosts posts={props.singles} />
       <ChooseArtists />
-      <TopSongs />
+      <TopSongs posts={props.singles} />
       <FeaturedAlbumsHorizontal />
     </>
   );

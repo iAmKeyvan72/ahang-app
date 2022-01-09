@@ -1,3 +1,6 @@
+.imageContainer {
+  position: relative;
+}
 .corneredImage {
   border-radius: 5%;
 }

@@ -8,14 +8,11 @@ const TopSongsContainer = ({ songs }) => {
   return (
     <div className={classes.topSongsContainer}>
       <HeaderTitle>Top Songs</HeaderTitle>
-
-      <ul className={classes.songsList}>
+      <div className={classes.songsList}>
         {songs.map((post) => (
-          <li key={post.id}>
-            <SquarePost post={post} />
-          </li>
+          <SquarePost key={post.id} post={post} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

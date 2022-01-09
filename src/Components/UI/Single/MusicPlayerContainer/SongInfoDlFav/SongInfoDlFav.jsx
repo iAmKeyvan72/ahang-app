@@ -15,6 +15,7 @@ import Anchor from '../../../Shared/Anchor/Anchor';
 import { stringToSlug } from '../../../../functions/stringToSlug';
 
 const SongInfoDlFav = ({ post }) => {
+  const { enName, artistsEnList, liked, link320, link128 } = post;
   return (
     <div className={classes.songInfoDlFav}>
       <IconButton
@@ -23,20 +24,20 @@ const SongInfoDlFav = ({ post }) => {
       />
       <div className={classes.songInfo}>
         <h1>
-          <Anchor href="#" title={post.enName}>
-            <BigText>{post.enName}</BigText>
+          <Anchor href="#" title={enName}>
+            <BigText>{enName}</BigText>
           </Anchor>
           <div className={classes.artistsLink}>
-            {post.artists.map((artist, index) => {
+            {artistsEnList.map((artist, index) => {
               return (
-                <React.Fragment key={artist.id}>
+                <React.Fragment key={artist}>
                   <Anchor
-                    href={`/artists/${stringToSlug(artist.enName)}`}
-                    title={artist.enName}
+                    href={`/artists/${stringToSlug(artist)}`}
+                    title={artist}
                   >
-                    <NormalText>{artist.enName}</NormalText>
+                    <NormalText>{artist}</NormalText>
                   </Anchor>
-                  {index < post.artists.length - 1 ? <span>,</span> : null}
+                  {index < artistsEnList.length - 1 ? <span>,</span> : null}
                 </React.Fragment>
               );
             })}
@@ -44,8 +45,8 @@ const SongInfoDlFav = ({ post }) => {
         </h1>
       </div>
       <IconButton
-        icon={post.liked ? mdiCardsHeart : mdiCardsHeartOutline}
-        color={post.liked ? 'var(--primary-500)' : 'var(--text-300)'}
+        icon={liked ? mdiCardsHeart : mdiCardsHeartOutline}
+        color={liked ? 'var(--primary-500)' : 'var(--text-300)'}
         onClick={() => console.log('like clicked')}
       />
     </div>

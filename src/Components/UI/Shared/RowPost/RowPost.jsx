@@ -10,7 +10,9 @@ import NormalText from '../Text/NormalText/NormalText';
 import { stringToSlug } from '../../../functions/stringToSlug';
 
 const RowPost = ({ post, hasBackground }) => {
-  const slug = '/singles/' + stringToSlug(`${post.artist} ${post.song}`);
+  const { enName, coverImage, artistsEnList, slug } = post;
+
+  const artistsString = artistsEnList.join(' & ');
 
   return (
     <div
@@ -18,10 +20,10 @@ const RowPost = ({ post, hasBackground }) => {
         hasBackground ? classes.hasBackground : null
       }`}
     >
-      <Anchor href={slug} title={`${post.artist} - ${post.song}`}>
+      <Anchor href={slug} title={`${artistsString} - ${enName}`}>
         <Image
-          src={post.image}
-          alt={`${post.artist} - ${post.song}`}
+          src={coverImage}
+          alt={`${artistsString} - ${enName}`}
           className="corneredImage"
           layout="responsive"
           width={80}
@@ -29,12 +31,19 @@ const RowPost = ({ post, hasBackground }) => {
         />
       </Anchor>
       <div className="songInfo">
-        <Anchor href={slug} className="boldText" title={post.song}>
-          <BigText>{post.song}</BigText>
+        <Anchor href={slug} className="boldText" title={enName}>
+          <BigText>{enName}</BigText>
         </Anchor>
-        <Anchor href={slug} className="lightText" title={post.artist}>
-          <NormalText>{post.artist}</NormalText>
-        </Anchor>
+        {artistsEnList.map((artist) => (
+          <Anchor
+            key={artist}
+            href={'/artists/' + stringToSlug(artist)}
+            className="lightText"
+            title={artist}
+          >
+            <NormalText>{artist}</NormalText>
+          </Anchor>
+        ))}
       </div>
     </div>
   );

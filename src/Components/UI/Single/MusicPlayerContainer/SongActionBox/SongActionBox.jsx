@@ -61,11 +61,12 @@ const actionsReducer = (state, action) => {
 
     default:
       return state;
-      break;
   }
 };
 
 const SongActionBox = ({ post }) => {
+  const { artistsEnList, videoUrl, lyrics } = post;
+
   const [actions, dispatch] = useReducer(actionsReducer, {
     modals: {
       showArtistsModal: false,
@@ -75,27 +76,29 @@ const SongActionBox = ({ post }) => {
     },
   });
 
-  const modalCloseHandler = () => {
-    console.log('close clicked!');
-  };
-
   return (
     <div className={classes.songActionBox}>
-      <IconButton
-        icon={mdiAccountMusic}
-        onClick={() => dispatch({ type: 'toggleArtistsModal' })}
-      />
+      {artistsEnList && (
+        <IconButton
+          icon={mdiAccountMusic}
+          onClick={() => dispatch({ type: 'toggleArtistsModal' })}
+        />
+      )}
       <IconButton
         icon={mdiPlaylistPlus}
         onClick={() => dispatch({ type: 'toggleAddToPlaylistModal' })}
       />
-      <Anchor href={post.videoUrl}>
-        <Icon path={mdiVideoOutline} size={1.1} color="var(--text-300)" />
-      </Anchor>
-      <IconButton
-        icon={mdiText}
-        onClick={() => dispatch({ type: 'toggleLyricsModal' })}
-      />
+      {videoUrl && (
+        <Anchor href={videoUrl}>
+          <Icon path={mdiVideoOutline} size={1.1} color="var(--text-300)" />
+        </Anchor>
+      )}
+      {lyrics && (
+        <IconButton
+          icon={mdiText}
+          onClick={() => dispatch({ type: 'toggleLyricsModal' })}
+        />
+      )}
       <IconButton
         icon={mdiShareVariant}
         onClick={() => dispatch({ type: 'toggleShareModal' })}
@@ -103,7 +106,7 @@ const SongActionBox = ({ post }) => {
 
       {actions.modals.showArtistsModal && (
         <ArtistModal
-          artists={post.artists}
+          artists={artistsEnList}
           close={() => dispatch({ type: 'closeModals' })}
         />
       )}
@@ -115,7 +118,7 @@ const SongActionBox = ({ post }) => {
       )}
       {actions.modals.showLyricsModal && (
         <LyricsModal
-          lyrics={post.lyrics}
+          lyrics={lyrics}
           close={() => dispatch({ type: 'closeModals' })}
         />
       )}

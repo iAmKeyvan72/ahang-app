@@ -9,16 +9,20 @@ import ChooseArtists from './ChooseArtists/ChooseArtists';
 import TopSongs from './TopSongs/TopSongs';
 import FeaturedAlbumsHorizontal from './FeaturedAlbumsHorizontal/FeaturedAlbumsHorizontal';
 
-const Homepage = (props) => {
+const Homepage = () => {
   return (
     <>
       <SingleTracksContextProvider>
-        <TopHomeBanner posts={props.singles} />
+        <TopHomeBanner />
       </SingleTracksContextProvider>
       <PlaylistsHorizontal />
-      <FeaturedPosts posts={props.singles} />
+      <SingleTracksContextProvider>
+        <FeaturedPosts />
+      </SingleTracksContextProvider>
       <ChooseArtists />
-      <TopSongs posts={props.singles} />
+      <SingleTracksContextProvider>
+        <TopSongs />
+      </SingleTracksContextProvider>
       <FeaturedAlbumsHorizontal />
     </>
   );

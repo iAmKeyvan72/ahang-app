@@ -10,35 +10,36 @@ import NormalText from '../Text/NormalText/NormalText';
 import { stringToSlug } from '../../../functions/stringToSlug';
 
 const SquarePost = ({ post }) => {
+  const { coverImage, enName, artistsEnList, slug } = post;
+  const artistsString = artistsEnList.join(' & ');
+
   return (
-    <div className={classes.squarePost}>
-      <div className={classes.coverContainer}>
-        <Anchor
-          href={'/singles/' + stringToSlug(`${post.artist} ${post.name}`)}
-          title={`${post.artist} ${post.name}`}
-        >
-          <Image
-            className="corneredImage"
-            src={post.image}
-            alt={`${post.artist} ${post.name}`}
-            width={300}
-            height={300}
-          />
+    <div className={classes.container}>
+      <div className={classes.squarePost}>
+        <div className={classes.coverContainer}>
+          <Anchor href={slug} title={`${artistsString} - ${enName}`}>
+            <Image
+              className="corneredImage"
+              src={coverImage}
+              alt={`${artistsString} - ${enName}`}
+              width={300}
+              height={300}
+            />
+          </Anchor>
+        </div>
+        <Anchor href={slug} title={enName} bold>
+          <BigText>{enName}</BigText>
         </Anchor>
+        {artistsEnList.map((artist) => (
+          <Anchor
+            key={artist}
+            href={'/artists/' + stringToSlug(`${artist}`)}
+            title={artist}
+          >
+            <NormalText>{artist}</NormalText>
+          </Anchor>
+        ))}
       </div>
-      <Anchor
-        href={'/singles/' + stringToSlug(`${post.artist} ${post.name}`)}
-        title={post.name}
-        bold
-      >
-        <BigText>{post.name}</BigText>
-      </Anchor>
-      <Anchor
-        href={'/artists/' + stringToSlug(`${post.artist}`)}
-        title={post.artist}
-      >
-        <NormalText>{post.artist}</NormalText>
-      </Anchor>
     </div>
   );
 };

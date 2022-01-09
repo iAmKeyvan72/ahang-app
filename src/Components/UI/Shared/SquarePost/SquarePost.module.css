@@ -1,7 +1,36 @@
+.container {
+  width: 50%;
+  display: -moz-box;
+  display: flex;
+  -moz-box-pack: center;
+  justify-content: center;
+  -moz-box-align: start;
+  align-items: flex-start;
+}
 .squarePost {
   width: 100%;
   margin: 10px;
 }
 .coverContainer {
   margin-bottom: 10px;
+}
+@media screen and (min-width: 550px) {
+  .container {
+    width: 33.33%;
+  }
+}
+@media screen and (min-width: 850px) {
+  .container {
+    width: 25%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 14%;
+  }
+}
+@media screen and (min-width: 1800px) {
+  .container {
+    width: 10%;
+  }
 }

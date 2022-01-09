@@ -1,5 +1,5 @@
 {
   "endpoints": {
-    "getLatestPosts": "https://musicisho.com/wp-json/wp/v2/posts"
+    "getLatestPosts": "https://dl2music.com/wp-json/wp/v2/posts"
   }
 }

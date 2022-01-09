@@ -7,20 +7,10 @@ import Anchor from '../../../Shared/Anchor/Anchor';
 import BigText from '../../../Shared/Text/BigText/BigText';
 import NormalText from '../../../Shared/Text/NormalText/NormalText';
 
-import { stringToSlug } from '../../../../functions/stringToSlug';
-
 const TopHomeFeaturePost = ({ post }) => {
-  const {
-    acf: {
-      title_en: songEn,
-      link_320,
-      original_cover: { url: image },
-    },
-  } = post;
+  const { enName, coverImage, artistsEnList, slug } = post;
 
-  const artistsEnStr = decodeURI(link_320).split('/')[2].split(' - ')[0];
-
-  const postPermalink = '/singles/' + stringToSlug(`${artistsEnStr} ${songEn}`);
+  const artistsEnStr = artistsEnList.join(' & ');
 
   return (
     <div className={classes.mostPopularContainer}>
@@ -31,21 +21,21 @@ const TopHomeFeaturePost = ({ post }) => {
           marginBottom: 10,
         }}
       >
-        <Anchor href={postPermalink} title={`${artistsEnStr} - ${songEn}`}>
+        <Anchor href={slug} title={`${artistsEnStr} - ${enName}`}>
           <Image
             className="corneredImage"
-            src={image}
-            alt={`${artistsEnStr} - ${songEn}`}
+            src={coverImage}
+            alt={`${artistsEnStr} - ${enName}`}
             layout="fill"
             objectFit="cover"
             quality={100}
           />
         </Anchor>
       </div>
-      <Anchor href={postPermalink} title={songEn}>
-        <BigText weight="bold">{songEn}</BigText>
+      <Anchor href={slug} title={enName}>
+        <BigText weight="bold">{enName}</BigText>
       </Anchor>
-      <Anchor href={postPermalink} title={artistsEnStr}>
+      <Anchor href={slug} title={artistsEnStr}>
         <NormalText>{artistsEnStr}</NormalText>
       </Anchor>
     </div>

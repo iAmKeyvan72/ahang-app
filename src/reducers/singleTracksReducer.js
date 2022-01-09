@@ -17,8 +17,7 @@ const trackListBuilder = (list) => {
       videoUrl: track.acf.video_post,
       artistsFaList: [],
       artistsEnList: artistsString.split(' & '),
-      slug:
-        '/singles/' + stringToSlug(`${artistsString} ${track.acf.title_en}`),
+      slug: '/tracks/' + stringToSlug(`${artistsString} ${track.acf.title_en}`),
       liked: false,
     };
     finalTrackList.push(newTrackObj);

@@ -2,12 +2,10 @@
   flex-grow: 3;
 }
 .contentsWrapper {
-  max-width: 500px;
+  max-width: 400px;
   margin: 0 auto;
   padding: 0 20px;
 }
 .coverContainer {
-  width: 85%;
-  max-width: 400px;
   margin: 20px auto;
 }

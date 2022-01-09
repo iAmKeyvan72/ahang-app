@@ -25,6 +25,12 @@ const TopSongs = (props) => {
           spacing: 15,
         },
       },
+      '(min-width: 1500px)': {
+        slides: {
+          perView: 4,
+          spacing: 15,
+        },
+      },
     },
     slides: {
       perView: 1.1,

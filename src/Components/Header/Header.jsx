@@ -1,6 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 
+import Navbar from '../UI/Navbar/Navbar';
+
 const Header = (props) => {
   return (
     <>
@@ -16,6 +18,7 @@ const Header = (props) => {
           rel="stylesheet"
         />
       </Head>
+      <Navbar />
     </>
   );
 };

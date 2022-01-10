@@ -5,11 +5,10 @@ import classes from './MusicPlayerContainer.module.css';
 import DynamicShadowImage from '../../Shared/DynamicShadowImage/DynamicShadowImage';
 import SongInfoDlFav from './SongInfoDlFav/SongInfoDlFav';
 import SongActionBox from './SongActionBox/SongActionBox';
+import TotalPlayer from '../../Shared/TotalPlayer/TotalPlayer';
 
-import { stringToSlug } from '../../../functions/stringToSlug';
-
-const MusicPlayerContainer = ({ post }) => {
-  const { artistsEnList, enName, coverImage } = post;
+const MusicPlayerContainer = ({ post: currPost, nextUps }) => {
+  const { artistsEnList, enName, coverImage } = currPost;
 
   const artistEnStr = artistsEnList.join(' & ');
 
@@ -26,10 +25,11 @@ const MusicPlayerContainer = ({ post }) => {
           />
         </div>
 
-        <SongInfoDlFav post={post} />
+        <SongInfoDlFav post={currPost} />
 
-        <div className="playerController">Here is controller</div>
-        <SongActionBox post={post} />
+        <TotalPlayer currPost={currPost} nextUps={nextUps} />
+
+        <SongActionBox post={currPost} />
       </div>
     </div>
   );

@@ -134,14 +134,16 @@ table {
   --background-900: #171a20;
 
   --primary-500: #ff2e63;
+  --primary-600: #e41c4f;
+  --primary-700: #d00035;
 
   --accent-500: #08d9d6;
 
-  --text-dark: #333841;
-  --text-400: #999ca0;
-  --text-300: #cbcccf;
-  --text-200: #fcfcfd;
   --text-100: #ffffff;
+  --text-200: #fcfcfd;
+  --text-300: #cbcccf;
+  --text-400: #999ca0;
+  --text-dark: #333841;
 }
 
 html,

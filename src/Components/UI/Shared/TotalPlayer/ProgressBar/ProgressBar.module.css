@@ -1,0 +1,94 @@
+.progressBarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.progressBarContainer p {
+  padding: 0;
+}
+.progressBar {
+  margin: auto 20px !important;
+}
+
+/* STYLING PROGRESSBAR */
+
+input.progressBar[type='range'] {
+  -webkit-appearance: none;
+  margin-right: 15px;
+  width: 100%;
+  height: 7px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  background-image: linear-gradient(var(--primary-500), var(--primary-500));
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+}
+
+/* Input Thumb */
+input.progressBar[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: var(--primary-500);
+  cursor: ew-resize;
+  box-shadow: 0 0 2px 0 #555;
+  transition: background 0.3s ease-in-out;
+}
+
+input.progressBar[type='range']::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: var(--primary-500);
+  cursor: ew-resize;
+  box-shadow: 0 0 2px 0 #555;
+  transition: background 0.3s ease-in-out;
+}
+
+input.progressBar[type='range']::-ms-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: var(--primary-500);
+  cursor: ew-resize;
+  box-shadow: 0 0 2px 0 #555;
+  transition: background 0.3s ease-in-out;
+}
+
+input.progressBar[type='range']::-webkit-slider-thumb:hover {
+  background: var(--primary-600);
+}
+
+input.progressBar[type='range']::-moz-range-thumb:hover {
+  background: var(--primary-600);
+}
+
+input.progressBar[type='range']::-ms-thumb:hover {
+  background: var(--primary-600);
+}
+
+/* Input Track */
+input.progressBar[type='range']::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+input.progressBar[type='range']::-moz-range-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+input.progressBar[type='range']::-ms-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}

@@ -1,0 +1,7 @@
+.actionButtons {
+  padding: 0 20px;
+  display: flex;
+}
+.actionButtons li {
+  margin-right: 15px;
+}

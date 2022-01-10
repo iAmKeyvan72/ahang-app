@@ -1,0 +1,14 @@
+.navigationLinks {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+.navigationLinks a {
+  display: block;
+  padding: 20px;
+}
+.scrollStyle p {
+  color: var(--text-300) !important;
+}

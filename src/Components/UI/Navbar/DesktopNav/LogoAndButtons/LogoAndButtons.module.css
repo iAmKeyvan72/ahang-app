@@ -1,0 +1,16 @@
+.logoAndButtonsContainer {
+  flex-grow: 1.5;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.logoContainer {
+  display: block;
+}
+
+@media screen and (min-width: 1024px) {
+  .logoAndButtonsContainer {
+    justify-content: space-between;
+  }
+}

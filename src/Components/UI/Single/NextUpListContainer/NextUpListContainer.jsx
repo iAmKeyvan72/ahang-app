@@ -1,15 +1,11 @@
-import React, { useContext } from 'react';
-
-import { SingleTracksContext } from '../../../../Contexts/SingleTracksContext';
+import React from 'react';
 
 import classes from './NextUpListContainer.module.css';
 
 import HeaderTitle from '../../Shared/HeaderTitle/HeaderTitle';
 import RowPost from '../../Shared/RowPost/RowPost';
 
-const NextUpListContainer = (props) => {
-  const { singleTracksList: posts } = useContext(SingleTracksContext);
-
+const NextUpListContainer = ({ posts }) => {
   return (
     <div className={classes.nextUpSongsContainer}>
       <HeaderTitle>Next Up</HeaderTitle>

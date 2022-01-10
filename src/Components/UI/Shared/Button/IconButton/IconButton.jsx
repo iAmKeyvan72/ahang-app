@@ -4,7 +4,8 @@ import Icon from '@mdi/react';
 import classes from './IconButton.module.css';
 
 const IconButton = (props) => {
-  const { type, title, icon, onClick, style, size, color, children } = props;
+  const { type, title, icon, onClick, style, size, color, spin, children } =
+    props;
 
   return (
     <button
@@ -19,6 +20,7 @@ const IconButton = (props) => {
         title={title}
         size={size ? size : 1.1}
         color={color ? color : 'var(--text-300)'}
+        spin={spin}
       />
     </button>
   );

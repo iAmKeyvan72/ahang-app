@@ -1,13 +1,14 @@
 .mobileNavContainer {
-  width: 80%;
+  width: 100%;
   position: fixed;
-  bottom: 20px;
+  bottom: 0;
   right: 0;
   left: 0;
   margin: auto;
-  border-radius: 20px;
-  background-color: var(--background-700);
-  box-shadow: 0 2px 20px var(--background-700);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  background-color: var(--background-900);
+  box-shadow: 0 2px 20px var(--background-800);
   z-index: 2;
 }
 .mobileNavContainer ul {

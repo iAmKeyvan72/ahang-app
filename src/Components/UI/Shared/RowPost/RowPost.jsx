@@ -25,7 +25,7 @@ const RowPost = ({ post, hasBackground }) => {
           src={coverImage}
           alt={`${artistsString} - ${enName}`}
           className="corneredImage"
-          layout="responsive"
+          // layout="responsive"
           width={80}
           height={80}
         />

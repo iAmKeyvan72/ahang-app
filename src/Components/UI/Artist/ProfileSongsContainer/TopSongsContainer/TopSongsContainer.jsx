@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './TopSongsContainer.module.css';
 import HeaderTitle from '../../../Shared/HeaderTitle/HeaderTitle';
-import SquarePost from '../../../Shared/SquarePost/SquarePost';
+import PostTile from '../../../Shared/Tiles/PostTile/PostTile';
 
 const TopSongsContainer = ({ songs }) => {
   return (
@@ -10,7 +10,7 @@ const TopSongsContainer = ({ songs }) => {
       <HeaderTitle>Top Songs</HeaderTitle>
       <div className={classes.songsList}>
         {songs.map((post) => (
-          <SquarePost key={post.id} post={post} />
+          <PostTile key={post.id} post={post} />
         ))}
       </div>
     </div>

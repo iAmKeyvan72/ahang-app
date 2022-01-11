@@ -13,17 +13,22 @@ import IconButton from '../../Button/IconButton/IconButton';
 import MainControllersContainer from './MainControllersContainer/MainControllersContainer';
 
 const SHUFFLE_STATUS = {
-  ON: mdiShuffle,
-  OFF: mdiShuffleDisabled,
+  ON: { mode: 'on', path: mdiShuffle },
+  OFF: { mode: 'off', path: mdiShuffleDisabled },
 };
 
 const REPEAT_STATUS = {
-  ALL: mdiRepeat,
-  ONCE: mdiRepeatOnce,
-  OFF: mdiRepeatOff,
+  ALL: { mode: 'all', path: mdiRepeat },
+  ONCE: { mode: 'once', path: mdiRepeatOnce },
+  OFF: { mode: 'off', path: mdiRepeatOff },
 };
 
-const ControllersContainer = ({ isReady, playing, handlePlayPause }) => {
+const ControllersContainer = ({
+  isReady,
+  playing,
+  handlePlayPause,
+  handleRepeatOnce,
+}) => {
   const [shuffleStatus, setShuffleStatus] = useState(SHUFFLE_STATUS.OFF);
   const [repeatStatus, setRepeatStatus] = useState(REPEAT_STATUS.OFF);
 
@@ -38,19 +43,12 @@ const ControllersContainer = ({ isReady, playing, handlePlayPause }) => {
   };
 
   const handleRepeat = () => {
+    handleRepeatOnce();
     setRepeatStatus((prevState) => {
-      switch (prevState) {
-        case REPEAT_STATUS.ALL:
-          return REPEAT_STATUS.ONCE;
-
-        case REPEAT_STATUS.ONCE:
-          return REPEAT_STATUS.OFF;
-
-        case REPEAT_STATUS.OFF:
-          return REPEAT_STATUS.ALL;
-
-        default:
-          return REPEAT_STATUS.OFF;
+      if (prevState == REPEAT_STATUS.ONCE) {
+        return REPEAT_STATUS.OFF;
+      } else {
+        return REPEAT_STATUS.ONCE;
       }
     });
   };
@@ -58,7 +56,7 @@ const ControllersContainer = ({ isReady, playing, handlePlayPause }) => {
   return (
     <div className={classes.controllersContainer}>
       <IconButton
-        icon={shuffleStatus}
+        icon={shuffleStatus.path}
         onClick={handleShuffle}
         color={`var(--${
           shuffleStatus != SHUFFLE_STATUS.OFF ? 'primary-500' : 'text-400'
@@ -70,7 +68,7 @@ const ControllersContainer = ({ isReady, playing, handlePlayPause }) => {
         handlePlayPause={handlePlayPause}
       />
       <IconButton
-        icon={repeatStatus}
+        icon={repeatStatus.path}
         onClick={handleRepeat}
         color={`var(--${
           repeatStatus != REPEAT_STATUS.OFF ? 'primary-500' : 'text-400'

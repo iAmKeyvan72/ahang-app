@@ -1,15 +1,15 @@
 import React from 'react';
 
-import classes from './SquareAlbum.module.css';
+import classes from './AlbumTile.module.css';
 
-import Anchor from '../../../Shared/Anchor/Anchor';
-import BigText from '../../../Shared/Text/BigText/BigText';
-import NormalText from '../../../Shared/Text/NormalText/NormalText';
-import Image from '../../../Shared/Image/Image';
+import Anchor from '../../Anchor/Anchor';
+import BigText from '../../Text/BigText/BigText';
+import NormalText from '../../Text/NormalText/NormalText';
+import Image from '../../Image/Image';
 
 import { stringToSlug } from '../../../../functions/stringToSlug';
 
-const SquareAlbum = ({ album }) => {
+const AlbumTile = ({ album }) => {
   const slug = '/albums/' + stringToSlug(`${album.artist} ${album.name}`);
 
   return (
@@ -56,4 +56,4 @@ const SquareAlbum = ({ album }) => {
   );
 };
 
-export default SquareAlbum;
+export default AlbumTile;

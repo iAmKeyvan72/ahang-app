@@ -1,21 +1,21 @@
 import React from 'react';
 
-import classes from './SquarePost.module.css';
+import classes from './PostTile.module.css';
 
-import Anchor from '../Anchor/Anchor';
-import Image from '../Image/Image';
-import BigText from '../Text/BigText/BigText';
-import NormalText from '../Text/NormalText/NormalText';
+import Anchor from '../../Anchor/Anchor';
+import Image from '../../Image/Image';
+import BigText from '../../Text/BigText/BigText';
+import NormalText from '../../Text/NormalText/NormalText';
 
-import { stringToSlug } from '../../../functions/stringToSlug';
+import { stringToSlug } from '../../../../functions/stringToSlug';
 
-const SquarePost = ({ post }) => {
+const PostTile = ({ post }) => {
   const { coverImage, enName, artistsEnList, slug } = post;
   const artistsString = artistsEnList.join(' & ');
 
   return (
     <div className={classes.container}>
-      <div className={classes.squarePost}>
+      <div className={classes.PostTile}>
         <div className={classes.coverContainer}>
           <Anchor href={slug} title={`${artistsString} - ${enName}`}>
             <Image
@@ -44,4 +44,4 @@ const SquarePost = ({ post }) => {
   );
 };
 
-export default SquarePost;
+export default PostTile;

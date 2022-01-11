@@ -7,7 +7,7 @@
   -moz-box-align: start;
   align-items: flex-start;
 }
-.squarePost {
+.PostTile {
   width: 100%;
   margin: 10px;
 }

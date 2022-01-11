@@ -76,6 +76,12 @@ const playerReducer = (state, action) => {
         duration: action.duration,
       };
 
+    case 'TOGGLE_REPEAT_ONCE':
+      return {
+        ...state,
+        loop: !state.loop,
+      };
+
     default:
       return state;
   }

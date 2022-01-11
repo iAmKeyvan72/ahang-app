@@ -1,0 +1,13 @@
+.postsList {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media screen and (min-width: 1200px) {
+  .artistsList .keen-slider {
+    display: flex;
+    flex-direction: row;
+  }
+  .artistsList .keen-slider .keen-slider__slide {
+    display: block;
+  }
+}

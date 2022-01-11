@@ -4,7 +4,7 @@ import classes from './FeaturedAlbumsHorizontal.module.css';
 
 import HeaderTitle from '../../Shared/HeaderTitle/HeaderTitle';
 import HorizontalCarousel from '../../Shared/HorizontalCarousel/HorizontalCarousel';
-import SquareAlbum from './SquareAlbum/SquareAlbum';
+import AlbumTile from '../../Shared/Tiles/AlbumTile/AlbumTile';
 
 const FeaturedAlbumsHorizontal = (props) => {
   const sliderConfig = {
@@ -67,7 +67,7 @@ const FeaturedAlbumsHorizontal = (props) => {
             className={`keen-slider__slide ${classes.fixHeight}`}
             key={album.id}
           >
-            <SquareAlbum album={album} />
+            <AlbumTile album={album} />
           </div>
         ))}
       </HorizontalCarousel>

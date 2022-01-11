@@ -137,6 +137,10 @@ const TotalPlayer = ({ currPost, nextUps }) => {
     dispatch({ type: 'SET_DURATION', duration });
   };
 
+  const handleRepeatOnce = () => {
+    dispatch({ type: 'TOGGLE_REPEAT_ONCE' });
+  };
+
   return (
     <div className={classes.playerContainer}>
       <ReactPlayer
@@ -177,6 +181,7 @@ const TotalPlayer = ({ currPost, nextUps }) => {
           isReady={isReady}
           playing={playing}
           handlePlayPause={handlePlayPause}
+          handleRepeatOnce={handleRepeatOnce}
         />
       </div>
     </div>

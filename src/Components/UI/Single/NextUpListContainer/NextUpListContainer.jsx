@@ -9,13 +9,11 @@ const NextUpListContainer = ({ posts }) => {
   return (
     <div className={classes.nextUpSongsContainer}>
       <HeaderTitle>Next Up</HeaderTitle>
-      <ul className="songsList">
+      <div className={classes.postsList}>
         {posts.map((post) => (
-          <li key={post.id}>
-            <RowPost post={post} />
-          </li>
+          <RowPost post={post} key={post.id} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

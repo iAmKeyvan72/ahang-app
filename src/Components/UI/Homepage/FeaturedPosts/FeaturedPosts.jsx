@@ -5,7 +5,7 @@ import classes from './FeaturedPosts.module.css';
 import { SingleTracksContext } from '../../../../Contexts/SingleTracksContext';
 
 import HeaderTitle from '../../Shared/HeaderTitle/HeaderTitle';
-import SquarePost from '../../Shared/SquarePost/SquarePost';
+import PostTile from '../../Shared/Tiles/PostTile/PostTile';
 
 const FeaturedPosts = () => {
   const { singleTracksList } = useContext(SingleTracksContext);
@@ -15,7 +15,7 @@ const FeaturedPosts = () => {
       <HeaderTitle>Featured</HeaderTitle>
       <div className={classes.posts}>
         {singleTracksList.map((post) => (
-          <SquarePost key={post.id} post={post} />
+          <PostTile key={post.id} post={post} />
         ))}
       </div>
     </section>

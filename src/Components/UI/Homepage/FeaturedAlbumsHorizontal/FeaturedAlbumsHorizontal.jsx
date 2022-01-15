@@ -5,6 +5,8 @@ import classes from './FeaturedAlbumsHorizontal.module.css';
 import HeaderTitle from '../../Shared/HeaderTitle/HeaderTitle';
 import HorizontalCarousel from '../../Shared/HorizontalCarousel/HorizontalCarousel';
 import AlbumTile from '../../Shared/Tiles/AlbumTile/AlbumTile';
+import { motion } from 'framer-motion';
+import { tileVariants } from '../../../../Animations/animations';
 
 const FeaturedAlbumsHorizontal = (props) => {
   const sliderConfig = {
@@ -63,12 +65,18 @@ const FeaturedAlbumsHorizontal = (props) => {
       <HeaderTitle>Top Albums</HeaderTitle>
       <HorizontalCarousel sliderConfig={sliderConfig}>
         {albums.map((album) => (
-          <div
+          <motion.div
+            variants={tileVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            whileHover="hover"
+            whileTap="tap"
             className={`keen-slider__slide ${classes.fixHeight}`}
             key={album.id}
           >
             <AlbumTile album={album} />
-          </div>
+          </motion.div>
         ))}
       </HorizontalCarousel>
     </section>

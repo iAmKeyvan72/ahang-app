@@ -1,0 +1,50 @@
+[
+  {
+    "trackId": "0",
+    "title": {
+      "english": "Ye Mosht Sarbaz",
+      "farsi": "یه مشت سربازی"
+    },
+    "releaseYear": 0,
+    "cover": {
+      "rawImage": "https://cdnmrtehran.ir/media/mp3s/Hichkas/Singles/hichkas_5_a.jpg",
+      "brandedImage": "string"
+    },
+    "description": "string",
+    "lyricsText": "string",
+    "durationInSeconds": 0,
+    "artists": [
+      {
+        "artistId": "8",
+        "name": {
+          "english": "Hichkas",
+          "farsi": "هیچکس"
+        },
+        "image": {
+          "rawImage": "https://musicefars.ir/wp-content/uploads/2020/04/816098f881cb244ede3497753ec1dd25.jpg",
+          "brandedImage": "string"
+        },
+        "description": "string",
+        "isLiked": true,
+        "isBand": false,
+        "specialsListOrder": 0
+      }
+    ],
+    "hqUrl": "string",
+    "mqUrl": "string",
+    "lqUrl": "string",
+    "videoUrl": "string",
+    "genres": [
+      {
+        "genreId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "name": {
+          "english": "string",
+          "farsi": "string"
+        },
+        "imageUrl": "string"
+      }
+    ],
+    "isLiked": true,
+    "mustDownload": true
+  }
+]

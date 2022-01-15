@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 import classes from './Single.module.css';
 
@@ -10,6 +11,23 @@ import {
 
 import MusicPlayerContainer from './MusicPlayerContainer/MusicPlayerContainer';
 import NextUpListContainer from './NextUpListContainer/NextUpListContainer';
+
+const containerVariants = {
+  initial: {
+    y: '100vh',
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+    },
+  },
+  exit: {
+    x: '-100vw',
+  },
+};
 
 const Single = () => {
   const { isLoading, singleTracksList } = useContext(SingleTracksContext);
@@ -26,10 +44,16 @@ const Single = () => {
   }
 
   return (
-    <div className={classes.container}>
+    <motion.div
+      variants={containerVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className={classes.container}
+    >
       <MusicPlayerContainer post={post} nextUps={posts} />
       <NextUpListContainer posts={posts} />
-    </div>
+    </motion.div>
   );
 };
 

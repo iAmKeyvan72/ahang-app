@@ -12,7 +12,8 @@ import ProgressBar from './ProgressBar/ProgressBar';
 import ControllersContainer from './ControllersContainer/ControllersContainer';
 
 const TotalPlayer = ({ currPost, nextUps }) => {
-  const currentPostLink = config.endpoints.mediaBaseUrl + currPost.link128;
+  const currentPostLink =
+    process.env.REACT_APP_MEDIA_BASE_URL + currPost.link128;
 
   const [isReady, setIsReady] = useState(false);
 

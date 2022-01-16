@@ -8,16 +8,20 @@ import BigText from '../Text/BigText/BigText';
 import NormalText from '../Text/NormalText/NormalText';
 
 import { stringToSlug } from '../../../functions/stringToSlug';
+import { motion } from 'framer-motion';
+import { rowItemsVariants } from '../../../../Animations/animations';
+import Icon from '@mdi/react';
 
-const RowPost = ({ post, hasBackground }) => {
-  const { enName, coverImage, artistsEnList, slug } = post;
+const RowPost = React.forwardRef((props, ref) => {
+  const { enName, coverImage, artistsEnList, slug } = props.post;
 
   const artistsString = artistsEnList.join(' & ');
 
   return (
     <div
+      ref={ref}
       className={`${classes.rowPost} ${classes.rowSongs} ${
-        hasBackground ? classes.hasBackground : null
+        props.hasBackground ? classes.hasBackground : null
       }`}
     >
       <Anchor href={slug} title={`${artistsString} - ${enName}`}>
@@ -30,7 +34,7 @@ const RowPost = ({ post, hasBackground }) => {
           height={80}
         />
       </Anchor>
-      <div className="songInfo">
+      <div className={classes.songInfo}>
         <Anchor href={slug} className="boldText" title={enName}>
           <BigText>{enName}</BigText>
         </Anchor>
@@ -45,8 +49,15 @@ const RowPost = ({ post, hasBackground }) => {
           </Anchor>
         ))}
       </div>
+      {props.icon && (
+        <div className={classes.dragMe}>
+          <Icon path={props.icon} size={1.1} color="var(--text-300)" />
+        </div>
+      )}
     </div>
   );
-};
+});
 
-export default RowPost;
+const MotionedRowPost = motion(RowPost);
+
+export default MotionedRowPost;

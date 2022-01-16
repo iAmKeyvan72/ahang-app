@@ -29,7 +29,7 @@ const useSingleTracksController = () => {
         });
       }
     };
-    fetchData(config.endpoints.getLatestPosts);
+    fetchData(process.env.REACT_APP_TRACKS_LATEST);
   }, []);
 
   return { isLoading, singleTracksList, hasError, error };

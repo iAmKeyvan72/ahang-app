@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './Button.module.css';
 
-import Anchor from '../UI/Anchor/Anchor';
+import Anchor from '../Anchor/Anchor';
 
 const Button = (props) => {
   let classNames = [classes.btn];

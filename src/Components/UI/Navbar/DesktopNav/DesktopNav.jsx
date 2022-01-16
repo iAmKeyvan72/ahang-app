@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 import classes from './DesktopNav.module.css';
 
@@ -23,14 +24,14 @@ const DesktopNav = () => {
   }, []);
 
   return (
-    <nav
+    <motion.nav
       className={`${classes.desktopNavbar} ${
         scrolled ? classes.fixedBack : null
       }`}
     >
       <LogoAndButtons />
       <NavigationLinks scrolled={scrolled} />
-    </nav>
+    </motion.nav>
   );
 };
 

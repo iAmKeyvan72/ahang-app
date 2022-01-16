@@ -65,18 +65,12 @@ const FeaturedAlbumsHorizontal = (props) => {
       <HeaderTitle>Top Albums</HeaderTitle>
       <HorizontalCarousel sliderConfig={sliderConfig}>
         {albums.map((album) => (
-          <motion.div
-            variants={tileVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            whileHover="hover"
-            whileTap="tap"
+          <div
             className={`keen-slider__slide ${classes.fixHeight}`}
             key={album.id}
           >
             <AlbumTile album={album} />
-          </motion.div>
+          </div>
         ))}
       </HorizontalCarousel>
     </section>

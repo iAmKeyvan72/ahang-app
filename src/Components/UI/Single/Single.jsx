@@ -12,23 +12,6 @@ import {
 import MusicPlayerContainer from './MusicPlayerContainer/MusicPlayerContainer';
 import NextUpListContainer from './NextUpListContainer/NextUpListContainer';
 
-const containerVariants = {
-  initial: {
-    y: '100vh',
-    opacity: 0,
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.4,
-    },
-  },
-  exit: {
-    x: '-100vw',
-  },
-};
-
 const Single = () => {
   const { isLoading, singleTracksList } = useContext(SingleTracksContext);
 
@@ -44,13 +27,7 @@ const Single = () => {
   }
 
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      className={classes.container}
-    >
+    <motion.div className={classes.container}>
       <MusicPlayerContainer post={post} nextUps={posts} />
       <NextUpListContainer posts={posts} />
     </motion.div>

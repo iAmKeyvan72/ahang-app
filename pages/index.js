@@ -1,9 +1,50 @@
-import React from 'react';
+import React, { createContext } from 'react';
+
+import * as api from '../src/apis/api';
 
 import Layout from '../src/Components/Layout/Layout';
 
-const Index = () => {
-  return <Layout page="homepage" />;
+export const InitialHomepageDataContext = createContext();
+
+export async function getStaticProps() {
+  const initialPromotions = await api.getPromotions();
+  const initialSpecialPlaylists = await api.getSpecialPlaylists();
+  const initialSuggestionTracks = await api.getSuggestionTracks();
+  const initialLatestTracks = await api.getLatestTracks();
+  const initialSpecialAlbums = await api.getSpecialAlbums();
+
+  return {
+    revalidate: 10,
+    props: {
+      initialPromotions,
+      initialSpecialPlaylists,
+      initialSuggestionTracks,
+      initialLatestTracks,
+      initialSpecialAlbums,
+    },
+  };
+}
+
+const Homepage = ({
+  initialPromotions,
+  initialSpecialPlaylists,
+  initialSuggestionTracks,
+  initialLatestTracks,
+  initialSpecialAlbums,
+}) => {
+  return (
+    <InitialHomepageDataContext.Provider
+      value={
+        (initialPromotions,
+        initialSpecialPlaylists,
+        initialSuggestionTracks,
+        initialLatestTracks,
+        initialSpecialAlbums)
+      }
+    >
+      <Layout page="homepage" />
+    </InitialHomepageDataContext.Provider>
+  );
 };
 
-export default Index;
+export default Homepage;

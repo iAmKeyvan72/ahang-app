@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SingleTracksContextProvider } from '../../../Contexts/SingleTracksContext';
+import { SingleTracksContextProvider } from '../../../Contexts/TracksContext';
 
 import TopHomeBanner from './TopHomeBanner/TopHomeBanner';
 import PlaylistsHorizontal from './PlaylistsHorizontal/PlaylistsHorizontal';

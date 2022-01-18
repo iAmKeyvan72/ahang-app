@@ -24,3 +24,7 @@ export const useSuggestionTracks = () => {
 export const useTrack = (id) => {
   return useQuery(['track', id], api.getTrack);
 };
+
+export const useNextTracks = (id) => {
+  return useQuery(['nextTracks', id, api.getNextTracks]);
+};

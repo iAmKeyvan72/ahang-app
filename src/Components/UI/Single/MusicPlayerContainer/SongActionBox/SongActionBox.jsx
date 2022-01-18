@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useContext, useReducer } from 'react';
 import Icon from '@mdi/react';
 import {
   mdiAccountMusic,
@@ -17,6 +17,7 @@ import ShareModal from './ShareModal/ShareModal';
 
 import IconButton from '../../../Shared/Button/IconButton/IconButton';
 import Anchor from '../../../Shared/Anchor/Anchor';
+import { TrackContext } from '../../../../../Contexts/TracksContext';
 
 const actionsReducer = (state, action) => {
   let closeModals = {
@@ -64,8 +65,10 @@ const actionsReducer = (state, action) => {
   }
 };
 
-const SongActionBox = ({ post }) => {
-  const { artistsEnList, videoUrl, lyrics } = post;
+const SongActionBox = () => {
+  const { data: track, isLoading } = useContext(TrackContext);
+
+  const { artistsEnList, videoUrl, lyrics } = track;
 
   const [actions, dispatch] = useReducer(actionsReducer, {
     modals: {

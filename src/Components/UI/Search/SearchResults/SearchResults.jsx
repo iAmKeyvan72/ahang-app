@@ -2,15 +2,15 @@ import React, { useContext } from 'react';
 
 import classes from './SearchResults.module.css';
 
-import { SingleTracksContext } from '../../../../Contexts/SingleTracksContext';
-
 import HeaderTitle from '../../Shared/HeaderTitle/HeaderTitle';
 import PostTile from '../../Shared/Tiles/PostTile/PostTile';
 import HorizontalCarousel from '../../Shared/HorizontalCarousel/HorizontalCarousel';
 import ArtistTile from '../../Shared/Tiles/ArtistTile/ArtistTile';
 
-const SearchResults = ({ query }) => {
-  const { singleTracksList: posts } = useContext(SingleTracksContext);
+import { SearchContext } from '../../../../Contexts/SearchContext';
+
+const SearchResults = () => {
+  const { data: results, isLoading } = useContext(SearchContext);
 
   const sliderConfig = {
     breakpoints: {
@@ -114,7 +114,7 @@ const SearchResults = ({ query }) => {
         </div>
         <HeaderTitle>Tracks</HeaderTitle>
         <div className={classes.postsList}>
-          {posts.slice(0, 5).map((post) => (
+          {results.slice(0, 5).map((post) => (
             <PostTile post={post} key={post.id} />
           ))}
         </div>

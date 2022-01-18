@@ -19,6 +19,11 @@ export const getTrack = async (_, id) => {
   return data;
 };
 
+export const getNextTracks = async (_, id) => {
+  const { data } = await client.get('posts');
+  return data;
+};
+
 export const getPromotions = async () => {
   const { data } = await client.get('/posts?sticky=true');
   return data;
@@ -31,6 +36,11 @@ export const getArtists = async () => {
 
 export const getArtist = async (_, id) => {
   const { data } = await client.get(`artist/${id}`);
+  return data;
+};
+
+export const getArtistTracks = async (_, id) => {
+  const { data } = await client.get(`posts?artist=${id}`);
   return data;
 };
 

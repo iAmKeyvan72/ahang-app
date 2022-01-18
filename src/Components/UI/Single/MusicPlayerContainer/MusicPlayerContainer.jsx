@@ -10,8 +10,10 @@ import TotalPlayer from '../../Shared/TotalPlayer/TotalPlayer';
 
 import { mainImageVariants } from '../../../../Animations/animations';
 
-const MusicPlayerContainer = ({ post: currPost, nextUps }) => {
-  const { artistsEnList, enName, coverImage } = currPost;
+const MusicPlayerContainer = () => {
+  const { data: track, isLoading } = useContext(TrackContext);
+
+  const { artistsEnList, enName, coverImage } = track;
 
   const artistEnStr = artistsEnList.join(' & ');
 
@@ -34,11 +36,11 @@ const MusicPlayerContainer = ({ post: currPost, nextUps }) => {
           />
         </motion.div>
 
-        <SongInfoDlFav post={currPost} />
+        <SongInfoDlFav />
 
         <TotalPlayer currPost={currPost} nextUps={nextUps} />
 
-        <SongActionBox post={currPost} />
+        <SongActionBox />
       </div>
     </div>
   );

@@ -1,6 +1,9 @@
 import React from 'react';
 
-import { SingleTracksContextProvider } from '../../../Contexts/TracksContext';
+import {
+  LatestTracksContextProvider,
+  SuggestionTracksContextProvider,
+} from '../../../Contexts/TracksContext';
 
 import TopHomeBanner from './TopHomeBanner/TopHomeBanner';
 import PlaylistsHorizontal from './PlaylistsHorizontal/PlaylistsHorizontal';
@@ -8,22 +11,29 @@ import FeaturedPosts from './FeaturedPosts/FeaturedPosts';
 import ChooseArtists from './ChooseArtists/ChooseArtists';
 import TopSongs from './TopSongs/TopSongs';
 import FeaturedAlbumsHorizontal from './FeaturedAlbumsHorizontal/FeaturedAlbumsHorizontal';
+import { PromotionsContextProvider } from '../../../Contexts/PromotionsContext';
+import { SpecialPlaylistsContextProvider } from '../../../Contexts/PlaylistsContext';
+import { SpecialAlbumsContextProvider } from '../../../Contexts/AlbumsContext';
 
 const Homepage = () => {
   return (
     <>
-      <SingleTracksContextProvider>
+      <PromotionsContextProvider>
         <TopHomeBanner />
-      </SingleTracksContextProvider>
-      <PlaylistsHorizontal />
-      <SingleTracksContextProvider>
+      </PromotionsContextProvider>
+      <SpecialPlaylistsContextProvider>
+        <PlaylistsHorizontal />
+      </SpecialPlaylistsContextProvider>
+      <SuggestionTracksContextProvider>
         <FeaturedPosts />
-      </SingleTracksContextProvider>
+      </SuggestionTracksContextProvider>
       <ChooseArtists />
-      <SingleTracksContextProvider>
+      <LatestTracksContextProvider>
         <TopSongs />
-      </SingleTracksContextProvider>
-      <FeaturedAlbumsHorizontal />
+      </LatestTracksContextProvider>
+      <SpecialAlbumsContextProvider>
+        <FeaturedAlbumsHorizontal />
+      </SpecialAlbumsContextProvider>
     </>
   );
 };

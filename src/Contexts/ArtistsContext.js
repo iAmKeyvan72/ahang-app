@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-import { useArtist, useArtists } from '../hooks/artists';
+import { useArtist, useArtists, useArtistTracks } from '../hooks/artists';
 
 export const ArtistsContext = createContext();
 export const ArtistsContextProvider = ({ children }) => {
@@ -14,12 +14,23 @@ export const ArtistsContextProvider = ({ children }) => {
 };
 
 export const ArtistContext = createContext();
-export const ArtistContextProvider = ({ children }) => {
-  const { data, isLoading } = useArtist();
+export const ArtistContextProvider = ({ id, children }) => {
+  const { data, isLoading } = useArtist(id);
 
   return (
     <ArtistContext.Provider value={(data, isLoading)}>
       {children}
     </ArtistContext.Provider>
+  );
+};
+
+export const ArtistTracksContext = createContext();
+export const ArtistTracksContextProvider = ({ id, children }) => {
+  const { data, isLoading } = useArtistTracks(id);
+
+  return (
+    <ArtistTracksContext.Provider value={(data, isLoading)}>
+      {children}
+    </ArtistTracksContext.Provider>
   );
 };

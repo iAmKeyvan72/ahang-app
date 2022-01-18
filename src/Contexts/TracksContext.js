@@ -2,6 +2,7 @@ import React, { createContext } from 'react';
 
 import {
   useLatestTracks,
+  useNextTracks,
   useSuggestionTracks,
   useTrack,
 } from '../hooks/tracks';
@@ -17,6 +18,17 @@ export const LatestTracksContextProvider = ({ children }) => {
   );
 };
 
+export const SuggestionTracksContext = createContext();
+export const SuggestionTracksContextProvider = ({ children }) => {
+  const { data, isLoading } = useSuggestionTracks();
+
+  return (
+    <SuggestionTracksContext.Provider value={(data, isLoading)}>
+      {children}
+    </SuggestionTracksContext.Provider>
+  );
+};
+
 export const TrackContext = createContext();
 export const TrackContextProvider = ({ id, children }) => {
   const { data, isLoading } = useTrack(id);
@@ -28,13 +40,13 @@ export const TrackContextProvider = ({ id, children }) => {
   );
 };
 
-export const SuggestionTracksContext = createContext();
-export const SuggestionTracksContextProvider = ({ children }) => {
-  const { data, isLoading } = useSuggestionTracks();
+export const NextTracksContext = createContext();
+export const NextTracksContextProvider = ({ id, children }) => {
+  const { data, isLoading } = useNextTracks(id);
 
   return (
-    <SuggestionTracksContext.Provider value={(data, isLoading)}>
+    <NextTracksContext.Provider value={(data, isLoading)}>
       {children}
-    </SuggestionTracksContext.Provider>
+    </NextTracksContext.Provider>
   );
 };

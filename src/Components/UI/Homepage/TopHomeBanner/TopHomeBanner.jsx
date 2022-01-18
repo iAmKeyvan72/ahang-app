@@ -2,14 +2,14 @@ import React, { useContext } from 'react';
 
 import classes from './TopHomeBanner.module.css';
 
-import { SingleTracksContext } from '../../../../Contexts/TracksContext';
+import { PromotionsContext } from '../../../../Contexts/PromotionsContext';
 
 import HeaderTitle from '../../Shared/HeaderTitle/HeaderTitle';
 import HorizontalCarousel from '../../Shared/HorizontalCarousel/HorizontalCarousel';
 import TopHomeFeaturePost from './TopHomeFeaturePost/TopHomeFeaturePost';
 
 const TopHomeBanner = () => {
-  const { isLoading, singleTracksList } = useContext(SingleTracksContext);
+  const { data, isLoading } = useContext(PromotionsContext);
 
   const sliderConfig = {
     breakpoints: {
@@ -40,7 +40,7 @@ const TopHomeBanner = () => {
         <div>Loading...</div>
       ) : (
         <HorizontalCarousel sliderConfig={sliderConfig}>
-          {singleTracksList.map((post) => (
+          {data.map((post) => (
             <div className="keen-slider__slide" key={post.id}>
               <TopHomeFeaturePost post={post} />
             </div>

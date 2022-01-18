@@ -9,3 +9,7 @@ export const useArtists = () => {
 export const useArtist = (id) => {
   return useQuery(['artist', id], api.getArtist);
 };
+
+export const useArtistTracks = (id) => {
+  return useQuery(['artistTracks', id], api.getArtistTracks);
+};

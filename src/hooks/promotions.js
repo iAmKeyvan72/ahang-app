@@ -5,10 +5,12 @@ import * as api from '../apis/api';
 
 import { InitialHomepageDataContext } from '../../pages';
 
-export const usePromotions = (props) => {
+export const usePromotions = () => {
   const initialPromotions = useContext(InitialHomepageDataContext);
 
-  return useQuery('promotions', api.getPromotions, {
+  console.log(initialPromotions);
+
+  return useQuery('promotions', () => api.getPromotions(), {
     initialData: initialPromotions,
   });
 };

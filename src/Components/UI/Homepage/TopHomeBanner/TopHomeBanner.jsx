@@ -40,7 +40,7 @@ const TopHomeBanner = () => {
         <div>Loading...</div>
       ) : (
         <HorizontalCarousel sliderConfig={sliderConfig}>
-          {data.map((post) => (
+          {data?.map((post) => (
             <div className="keen-slider__slide" key={post.id}>
               <TopHomeFeaturePost post={post} />
             </div>

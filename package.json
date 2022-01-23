@@ -1,11 +1,14 @@
 {
   "name": "ahang-app",
   "private": true,
+  "homepage": "https://iAmKeyvan72.github.io/ahang-app",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@mdi/js": "^6.5.95",

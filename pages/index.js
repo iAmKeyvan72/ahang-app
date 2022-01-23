@@ -8,10 +8,21 @@ export const InitialHomepageDataContext = createContext();
 
 export async function getStaticProps() {
   const initialPromotions = await api.getPromotions();
+  console.log('[getStaticProps] initialPromotions: ', initialPromotions);
   const initialSpecialPlaylists = await api.getSpecialPlaylists();
+  console.log(
+    '[getStaticProps] initialSpecialPlaylists: ',
+    initialSpecialPlaylists
+  );
   const initialSuggestionTracks = await api.getSuggestionTracks();
+  console.log(
+    '[getStaticProps] initialSuggestionTracks: ',
+    initialSuggestionTracks
+  );
   const initialLatestTracks = await api.getLatestTracks();
+  console.log('[getStaticProps] initialLatestTracks: ', initialLatestTracks);
   const initialSpecialAlbums = await api.getSpecialAlbums();
+  console.log('[getStaticProps] initialSpecialAlbums: ', initialSpecialAlbums);
 
   return {
     revalidate: 10,

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import classes from './FeaturedPosts.module.css';
 
-import { SingleTracksContext } from '../../../../Contexts/SingleTracksContext';
+import { SingleTracksContext } from '../../../../Contexts/TracksContext';
 
 import HeaderTitle from '../../Shared/HeaderTitle/HeaderTitle';
 import PostTile from '../../Shared/Tiles/PostTile/PostTile';

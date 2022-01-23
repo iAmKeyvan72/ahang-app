@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 import classes from './PlaylistsHorizontal.module.css';
 
@@ -76,13 +77,15 @@ const PlaylistsHorizontal = (props) => {
   return (
     <section className={classes.playlistsHorizontal}>
       <HeaderTitle>Most Popular Playlists</HeaderTitle>
-      <HorizontalCarousel sliderConfig={sliderConfig}>
-        {playlists.map((playlist) => (
-          <div className="keen-slider__slide" key={playlist.id}>
-            <PlaylistContainer playlist={playlist} />
-          </div>
-        ))}
-      </HorizontalCarousel>
+      <motion.div>
+        <HorizontalCarousel sliderConfig={sliderConfig}>
+          {playlists.map((playlist) => (
+            <motion.div className="keen-slider__slide" key={playlist.id}>
+              <PlaylistContainer playlist={playlist} />
+            </motion.div>
+          ))}
+        </HorizontalCarousel>
+      </motion.div>
     </section>
   );
 };

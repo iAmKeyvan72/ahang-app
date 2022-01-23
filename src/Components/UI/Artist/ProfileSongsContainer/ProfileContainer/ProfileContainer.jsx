@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { mdiCardsHeartOutline, mdiCardsHeart } from '@mdi/js';
 
 import classes from './ProfileContainer.module.css';
@@ -10,8 +10,11 @@ import BigText from '../../../Shared/Text/BigText/BigText';
 import NormalText from '../../../Shared/Text/NormalText/NormalText';
 
 import { stringToSlug } from '../../../../functions/stringToSlug';
+import { ArtistContext } from '../../../../../Contexts/ArtistsContext';
 
-const ProfileContainer = ({ artist }) => {
+const ProfileContainer = () => {
+  const { data: artist, isLoading } = useContext(ArtistContext);
+
   return (
     <div className={classes.profileContainer}>
       <div className={classes.profileImageContainer}>

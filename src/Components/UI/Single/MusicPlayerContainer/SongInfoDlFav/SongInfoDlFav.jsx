@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   mdiCardsHeartOutline,
   mdiCardsHeart,
@@ -13,9 +13,12 @@ import NormalText from '../../../Shared/Text/NormalText/NormalText';
 import Anchor from '../../../Shared/Anchor/Anchor';
 
 import { stringToSlug } from '../../../../functions/stringToSlug';
+import { TrackContext } from '../../../../../Contexts/TracksContext';
 
-const SongInfoDlFav = ({ post }) => {
-  const { enName, artistsEnList, liked, link320, link128 } = post;
+const SongInfoDlFav = () => {
+  const { data: track, isLoading } = useContext(TrackContext);
+
+  const { enName, artistsEnList, liked } = track;
   return (
     <div className={classes.songInfoDlFav}>
       <IconButton

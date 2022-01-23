@@ -1,0 +1,152 @@
+[
+  {
+    "artistId": "0",
+    "name": {
+      "english": "Behnam Bani",
+      "farsi": "بهنام بانی"
+    },
+    "image": {
+      "rawImage": "https://www.ganja2music.com/Image/Post/Video/7.2019/Behnam%20Bani%20-%20Faghat%20Boro.jpg",
+      "brandedImage": "string"
+    },
+    "description": "string",
+    "isLiked": true,
+    "isBand": false,
+    "specialsListOrder": 0
+  },
+  {
+    "artistId": "1",
+    "name": {
+      "english": "Reza Bahram",
+      "farsi": "رضا بهرام"
+    },
+    "image": {
+      "rawImage": "https://www.rezabahram.net/images/bagallery/gallery-1/thumbnail/category-1/03.jpg?1618934963",
+      "brandedImage": "string"
+    },
+    "description": "string",
+    "isLiked": true,
+    "isBand": false,
+    "specialsListOrder": 0
+  },
+  {
+    "artistId": "2",
+    "name": {
+      "english": "Ali Yasini",
+      "farsi": "علی یاسینی"
+    },
+    "image": {
+      "rawImage": "https://music-fa.com/wp-content/uploads/2020/07/Ali-Yasini-Music-fa.com_.jpg",
+      "brandedImage": "string"
+    },
+    "description": "string",
+    "isLiked": true,
+    "isBand": false,
+    "specialsListOrder": 0
+  },
+  {
+    "artistId": "3",
+    "name": {
+      "english": "Aron Afshar",
+      "farsi": "آرون افشار"
+    },
+    "image": {
+      "rawImage": "https://mrjavan.com/wp-content/uploads/2021/06/Aron-Afshar.jpg",
+      "brandedImage": "string"
+    },
+    "description": "string",
+    "isLiked": true,
+    "isBand": false,
+    "specialsListOrder": 0
+  },
+  {
+    "artistId": "4",
+    "name": {
+      "english": "Ali Zand Vakili",
+      "farsi": "علی زند وکیلی"
+    },
+    "image": {
+      "rawImage": "https://apmusic.ir/wp-content/uploads/2019/06/ali-zand-vakili-bar-bad-rafte.jpg",
+      "brandedImage": "string"
+    },
+    "description": "string",
+    "isLiked": true,
+    "isBand": false,
+    "specialsListOrder": 0
+  },
+  {
+    "artistId": "5",
+    "name": {
+      "english": "Sogand",
+      "farsi": "سوگند"
+    },
+    "image": {
+      "rawImage": "https://www.my-ahangha.ir/wp-content/uploads/2018/03/Sogand-Chikaret-Kardam-1.jpg",
+      "brandedImage": "string"
+    },
+    "description": "string",
+    "isLiked": true,
+    "isBand": false,
+    "specialsListOrder": 0
+  },
+  {
+    "artistId": "6",
+    "name": {
+      "english": "Shadmehr Aghili",
+      "farsi": "شادمهر عقیلی"
+    },
+    "image": {
+      "rawImage": "https://avangtv.com/wp-content/uploads/2021/02/%D8%B4%D8%A7%D8%AF%D9%85%D9%87%D8%B1-%D8%B9%D9%82%DB%8C%D9%84%DB%8C.jpg",
+      "brandedImage": "string"
+    },
+    "description": "string",
+    "isLiked": true,
+    "isBand": false,
+    "specialsListOrder": 0
+  },
+  {
+    "artistId": "7",
+    "name": {
+      "english": "Zedbazi",
+      "farsi": "زدبازی"
+    },
+    "image": {
+      "rawImage": "https://cdn-tehran.wisgoon.com/dlir-s3/10531441822009454769.jpg",
+      "brandedImage": "string"
+    },
+    "description": "string",
+    "isLiked": true,
+    "isBand": false,
+    "specialsListOrder": 0
+  },
+  {
+    "artistId": "8",
+    "name": {
+      "english": "Hichkas",
+      "farsi": "هیچکس"
+    },
+    "image": {
+      "rawImage": "https://musicefars.ir/wp-content/uploads/2020/04/816098f881cb244ede3497753ec1dd25.jpg",
+      "brandedImage": "string"
+    },
+    "description": "string",
+    "isLiked": true,
+    "isBand": false,
+    "specialsListOrder": 0
+  },
+  {
+    "artistId": "9",
+    "name": {
+      "english": "Alireza Ghorbani",
+      "farsi": "علیرضا قربانی"
+    },
+    "image": {
+      "rawImage": "https://nicmusic.net/wp-content/uploads/2016/05/2016-05-30_134707-500x500.jpg",
+      "brandedImage": "string"
+    },
+    "description": "string",
+    "isLiked": true,
+    "isBand": false,
+    "specialsListOrder": 0
+  }
+]

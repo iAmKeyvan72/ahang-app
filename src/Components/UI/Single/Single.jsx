@@ -1,44 +1,30 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 import classes from './Single.module.css';
 
-import {
-  SingleTracksContext,
-  SingleTracksContextProvider,
-} from '../../../Contexts/SingleTracksContext';
-
 import MusicPlayerContainer from './MusicPlayerContainer/MusicPlayerContainer';
 import NextUpListContainer from './NextUpListContainer/NextUpListContainer';
+import {
+  NextTracksContextProvider,
+  TrackContextProvider,
+} from '../../../Contexts/TracksContext';
 
 const Single = () => {
-  const { isLoading, singleTracksList } = useContext(SingleTracksContext);
-
   const router = useRouter();
-  const { asPath } = router;
-
-  const post = singleTracksList.find((track) => track.slug === asPath);
-
-  const { singleTracksList: posts } = useContext(SingleTracksContext);
-
-  if (isLoading) {
-    return <div>Loading Data...</div>;
-  }
+  const { trackId } = router.query;
 
   return (
-    <div className={classes.container}>
-      <MusicPlayerContainer post={post} nextUps={posts} />
-      <NextUpListContainer posts={posts} />
-    </div>
+    <motion.div className={classes.container}>
+      <TrackContextProvider id={trackId}>
+        <NextTracksContextProvider id={trackId}>
+          <MusicPlayerContainer />
+          <NextUpListContainer />
+        </NextTracksContextProvider>
+      </TrackContextProvider>
+    </motion.div>
   );
 };
 
-const SingleWithoutContext = () => {
-  return (
-    <SingleTracksContextProvider>
-      <Single />
-    </SingleTracksContextProvider>
-  );
-};
-
-export default SingleWithoutContext;
+export default Single;

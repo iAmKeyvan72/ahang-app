@@ -1,14 +1,27 @@
 import React from 'react';
-import ProfileContainer from './ProfileContainer/ProfileContainer';
+import { useRouter } from 'next/router';
 
-import classes from './ProfileSongsContainer.module.css';
+import {
+  ArtistContextProvider,
+  ArtistTracksContextProvider,
+} from '../../../../Contexts/ArtistsContext';
+import ProfileContainer from './ProfileContainer/ProfileContainer';
 import TopSongsContainer from './TopSongsContainer/TopSongsContainer';
 
-const ProfileSongsContainer = ({ artist, songs }) => {
+import classes from './ProfileSongsContainer.module.css';
+
+const ProfileSongsContainer = () => {
+  const router = useRouter();
+  const { artistId } = router.query;
+
   return (
     <div className={classes.profileSongsContainer}>
-      <ProfileContainer artist={artist} />
-      <TopSongsContainer songs={songs} />
+      <ArtistContextProvider id={artistId}>
+        <ProfileContainer />
+      </ArtistContextProvider>
+      <ArtistTracksContextProvider id={artistId}>
+        <TopSongsContainer />
+      </ArtistTracksContextProvider>
     </div>
   );
 };

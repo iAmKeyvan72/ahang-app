@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 import classes from './PostTile.module.css';
 
@@ -8,14 +9,23 @@ import BigText from '../../Text/BigText/BigText';
 import NormalText from '../../Text/NormalText/NormalText';
 
 import { stringToSlug } from '../../../../functions/stringToSlug';
+import { tileVariants } from '../../../../../Animations/animations';
 
 const PostTile = ({ post }) => {
   const { coverImage, enName, artistsEnList, slug } = post;
   const artistsString = artistsEnList.join(' & ');
 
   return (
-    <div className={classes.container}>
-      <div className={classes.PostTile}>
+    <motion.div
+      variants={tileVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      whileHover="hover"
+      whileTap="tap"
+      className={classes.container}
+    >
+      <motion.div className={classes.PostTile}>
         <div className={classes.coverContainer}>
           <Anchor href={slug} title={`${artistsString} - ${enName}`}>
             <Image
@@ -39,8 +49,8 @@ const PostTile = ({ post }) => {
             <NormalText>{artist}</NormalText>
           </Anchor>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

@@ -5,6 +5,8 @@ import classes from './FeaturedAlbumsHorizontal.module.css';
 import HeaderTitle from '../../Shared/HeaderTitle/HeaderTitle';
 import HorizontalCarousel from '../../Shared/HorizontalCarousel/HorizontalCarousel';
 import AlbumTile from '../../Shared/Tiles/AlbumTile/AlbumTile';
+import { motion } from 'framer-motion';
+import { tileVariants } from '../../../../Animations/animations';
 
 const FeaturedAlbumsHorizontal = (props) => {
   const sliderConfig = {

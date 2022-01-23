@@ -2,21 +2,35 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import Icon from '@mdi/react';
 import { mdiAccount, mdiMagnify, mdiChevronLeft } from '@mdi/js';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import classes from './ActionButtons.module.css';
 
 import Anchor from '../../../../Shared/Anchor/Anchor';
 import IconButton from '../../../../Shared/Button/IconButton/IconButton';
 
+import {
+  navbarItemVariants,
+  staggerVariants,
+} from '../../../../../../Animations/animations';
+
 const ActionButtons = () => {
   const router = useRouter();
 
   return (
-    <ul className={classes.actionButtons}>
+    <motion.ul variants={staggerVariants} className={classes.actionButtons}>
       {router.pathname !== '/' && (
-        <li>
-          <IconButton icon={mdiChevronLeft} onClick={() => router.back()} />
-        </li>
+        <AnimatePresence>
+          <motion.li
+            variants={navbarItemVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            key="back"
+          >
+            <IconButton icon={mdiChevronLeft} onClick={() => router.back()} />
+          </motion.li>
+        </AnimatePresence>
       )}
       <li>
         <IconButton
@@ -35,7 +49,7 @@ const ActionButtons = () => {
           />
         </Anchor>
       </li>
-    </ul>
+    </motion.ul>
   );
 };
 

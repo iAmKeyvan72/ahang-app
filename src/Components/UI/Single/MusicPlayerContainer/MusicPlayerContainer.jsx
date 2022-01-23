@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 import classes from './MusicPlayerContainer.module.css';
 
@@ -7,15 +8,25 @@ import SongInfoDlFav from './SongInfoDlFav/SongInfoDlFav';
 import SongActionBox from './SongActionBox/SongActionBox';
 import TotalPlayer from '../../Shared/TotalPlayer/TotalPlayer';
 
-const MusicPlayerContainer = ({ post: currPost, nextUps }) => {
-  const { artistsEnList, enName, coverImage } = currPost;
+import { mainImageVariants } from '../../../../Animations/animations';
+
+const MusicPlayerContainer = () => {
+  const { data: track, isLoading } = useContext(TrackContext);
+
+  const { artistsEnList, enName, coverImage } = track;
 
   const artistEnStr = artistsEnList.join(' & ');
 
   return (
     <div className={classes.musicPlayerContainer}>
       <div className={classes.contentsWrapper}>
-        <div className={classes.coverContainer}>
+        <motion.div
+          variants={mainImageVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          className={classes.coverContainer}
+        >
           <DynamicShadowImage
             src={coverImage}
             alt={`${artistEnStr} - ${enName}`}
@@ -23,13 +34,13 @@ const MusicPlayerContainer = ({ post: currPost, nextUps }) => {
             height={400}
             layout="responsive"
           />
-        </div>
+        </motion.div>
 
-        <SongInfoDlFav post={currPost} />
+        <SongInfoDlFav />
 
         <TotalPlayer currPost={currPost} nextUps={nextUps} />
 
-        <SongActionBox post={currPost} />
+        <SongActionBox />
       </div>
     </div>
   );

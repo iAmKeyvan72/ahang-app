@@ -1,14 +1,12 @@
 import React, { createContext } from 'react';
-import { usePromotions } from '../hooks/promotions';
+import { usePromotions } from '../hooks/usePromotionsContainer';
 
 export const PromotionsContext = createContext();
 export const PromotionsContextProvider = ({ children }) => {
-  const { data, isLoading } = usePromotions();
-
-  console.log('[PromotionsContext] data: ', data);
+  const { renderedData, isLoading } = usePromotions();
 
   return (
-    <PromotionsContext.Provider value={(data, isLoading)}>
+    <PromotionsContext.Provider value={{ renderedData, isLoading }}>
       {children}
     </PromotionsContext.Provider>
   );

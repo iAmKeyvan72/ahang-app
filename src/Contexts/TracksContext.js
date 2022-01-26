@@ -5,7 +5,7 @@ import {
   useNextTracks,
   useSuggestionTracks,
   useTrack,
-} from '../hooks/tracks';
+} from '../hooks/useTracksContainer';
 
 export const LatestTracksContext = createContext();
 export const LatestTracksContextProvider = ({ children }) => {

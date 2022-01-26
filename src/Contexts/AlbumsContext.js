@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { useAlbum, useLatestAlbums } from '../hooks/albums';
+import { useAlbum, useLatestAlbums } from '../hooks/useAlbumsContainer';
 
 export const LatestAlbumsContext = createContext();
 export const LatestAlbumsContextProvider = ({ children }) => {

@@ -1,44 +1,20 @@
-import React, { useContext } from 'react';
+import config from '../../../../config.json';
+
+import React from 'react';
 
 import classes from './TopSongs.module.css';
-
-import { SingleTracksContext } from '../../../../Contexts/TracksContext';
 
 import HeaderTitle from '../../Shared/HeaderTitle/HeaderTitle';
 import RowPost from '../../Shared/RowPost/RowPost';
 import HorizontalCarousel from '../../Shared/HorizontalCarousel/HorizontalCarousel';
 
-const TopSongs = (props) => {
-  const { singleTracksList: posts } = useContext(SingleTracksContext);
+import { useLatestTracks } from '../../../../hooks/useTracksContainer';
 
-  const sliderConfig = {
-    breakpoints: {
-      '(min-width: 700px)': {
-        slides: {
-          perView: 2.1,
-          spacing: 5,
-        },
-      },
-      '(min-width: 1024px)': {
-        slides: {
-          perView: 3.1,
-          spacing: 15,
-        },
-      },
-      '(min-width: 1500px)': {
-        slides: {
-          perView: 4,
-          spacing: 15,
-        },
-      },
-    },
-    slides: {
-      perView: 1.1,
-    },
-  };
+const TopSongs = () => {
+  const { renderedData: posts, isLoading } = useLatestTracks();
 
   var perChunk = 3; // items per chunk
-  var chunkedPosts = posts.reduce((posts, item, index) => {
+  var chunkedPosts = posts?.reduce((posts, item, index) => {
     const chunkIndex = Math.floor(index / perChunk);
     if (!posts[chunkIndex]) {
       posts[chunkIndex] = []; // start a new chunk
@@ -50,18 +26,21 @@ const TopSongs = (props) => {
   return (
     <section className={classes.topSongs}>
       <HeaderTitle>Top New Songs</HeaderTitle>
-
-      <HorizontalCarousel sliderConfig={sliderConfig}>
-        {chunkedPosts.map((chunkedPost, index) => (
-          <div className="keen-slider__slide" key={index}>
-            <div className="songsColumn">
-              {chunkedPost.map((post) => (
-                <RowPost key={post.id} post={post} hasBackground />
-              ))}
+      {isLoading ? (
+        <div>Loading ...</div>
+      ) : (
+        <HorizontalCarousel sliderConfig={config.sliders.homeLatestTracks}>
+          {chunkedPosts.map((chunkedPost, index) => (
+            <div className="keen-slider__slide" key={index}>
+              <div className="songsColumn">
+                {chunkedPost.map((post) => (
+                  <RowPost key={post.id} post={post} hasBackground />
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </HorizontalCarousel>
+          ))}
+        </HorizontalCarousel>
+      )}
     </section>
   );
 };

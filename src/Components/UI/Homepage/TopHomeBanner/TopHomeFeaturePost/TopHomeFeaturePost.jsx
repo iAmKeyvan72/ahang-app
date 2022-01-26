@@ -8,9 +8,7 @@ import BigText from '../../../Shared/Text/BigText/BigText';
 import NormalText from '../../../Shared/Text/NormalText/NormalText';
 
 const TopHomeFeaturePost = ({ post }) => {
-  const { enName, coverImage, artistsEnList, slug } = post;
-
-  const artistsEnStr = artistsEnList.join(' & ');
+  const { enName, coverImage, artistsEnStr, slug } = post;
 
   return (
     <div className={classes.mostPopularContainer}>

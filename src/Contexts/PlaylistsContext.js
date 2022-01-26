@@ -5,14 +5,16 @@ import {
   useLatestPlaylists,
   usePlaylist,
   useSpecialPlaylists,
-} from '../hooks/playlists';
+} from '../hooks/usePlaylistsContainer';
 
 export const LatestPlaylistsContext = createContext();
 export const LatestPlaylistsContextProvider = ({ children }) => {
   const { data, isLoading } = useLatestPlaylists();
 
+  const provider = { data, isLoading };
+
   return (
-    <LatestPlaylistsContext.Provider value={(data, isLoading)}>
+    <LatestPlaylistsContext.Provider value={provider}>
       {children}
     </LatestPlaylistsContext.Provider>
   );
@@ -22,8 +24,11 @@ export const SpecialPlaylistsContext = createContext();
 export const SpecialPlaylistsContextProvider = ({ children }) => {
   const { data, isLoading } = useSpecialPlaylists();
 
+  console.log('[SpecialPlaylistsContext] data: ', data);
+  console.log('================================');
+
   return (
-    <SpecialPlaylistsContextProvider value={(data, isLoading)}>
+    <SpecialPlaylistsContextProvider value={{ data, isLoading }}>
       {children}
     </SpecialPlaylistsContextProvider>
   );

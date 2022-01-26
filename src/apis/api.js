@@ -30,7 +30,7 @@ export const getNextTracks = async (_, id) => {
 
 export const getPromotions = async () => {
   console.log('GET Promotions api call');
-  const { data } = await client.get('/posts?sticky=true');
+  const { data } = await client.get('/posts?sticky=true&categories=2');
   return data;
 };
 
@@ -60,14 +60,22 @@ export const getLatestPlaylists = async () => {
 
 export const getSpecialPlaylists = async () => {
   console.log('GET SpecialPlaylists api call');
-  const { data } = await client.get('posts?sticky=true&categories=203');
-  return data;
+  try {
+    const { data } = await client.get('/posts?sticky=true&categories=203');
+    return data;
+  } catch (error) {
+    console.error('[ERROR] GET SpecialPlaylists in [api.js]', error);
+  }
 };
 
 export const getPlaylist = async (_, id) => {
   console.log('GET Playlist api call');
-  const { data } = await client.get(`posts/${id}`);
-  return data;
+  try {
+    const { data } = await client.get(`posts/${id}`);
+    return data;
+  } catch (error) {
+    console.error('[ERROR] GET Playlists in [api.js]', error);
+  }
 };
 
 export const getLatestAlbums = async () => {

@@ -10,15 +10,15 @@ import Image from '../../Image/Image';
 import { stringToSlug } from '../../../../functions/stringToSlug';
 
 const AlbumTile = ({ album }) => {
-  const slug = '/albums/' + stringToSlug(`${album.artist} ${album.name}`);
+  const { enName, slug, artistsEnStr, artistsEnList, coverImage } = album;
 
   return (
     <div className={classes.albumTile}>
-      <Anchor href={slug} title={`${album.artist} - ${album.name}`}>
+      <Anchor href={slug} title={`${artistsEnStr} - ${enName}`}>
         <div className={classes.albumCover}>
           <Image
-            src={album.image}
-            alt={`${album.artist} - ${album.name}`}
+            src={coverImage}
+            alt={`${artistsEnStr} - ${enName}`}
             className="corneredImage"
             width={100}
             height={100}
@@ -27,8 +27,8 @@ const AlbumTile = ({ album }) => {
         </div>
         <div className={classes.albumCover}>
           <Image
-            src={album.image}
-            alt={`${album.artist} - ${album.name}`}
+            src={coverImage}
+            alt={`${artistsEnStr} - ${enName}`}
             className="corneredImage"
             width={100}
             height={100}
@@ -37,8 +37,8 @@ const AlbumTile = ({ album }) => {
         </div>
         <div className={classes.albumCover}>
           <Image
-            src={album.image}
-            alt={`${album.artist} - ${album.name}`}
+            src={coverImage}
+            alt={`${artistsEnStr} - ${enName}`}
             className="corneredImage"
             width={100}
             height={100}
@@ -46,11 +46,11 @@ const AlbumTile = ({ album }) => {
           />
         </div>
       </Anchor>
-      <Anchor className="boldText" href={slug} title={album.artist}>
-        <BigText>{album.artist}</BigText>
+      <Anchor className="boldText" href={slug} title={artistsEnStr}>
+        <BigText>{artistsEnStr}</BigText>
       </Anchor>
-      <Anchor className="lightText" href={slug} title={album.name}>
-        <NormalText>{album.name}</NormalText>
+      <Anchor className="lightText" href={slug} title={enName}>
+        <NormalText>{enName}</NormalText>
       </Anchor>
     </div>
   );

@@ -1,6 +1,10 @@
 import { createContext } from 'react';
 
-import { useArtist, useArtists, useArtistTracks } from '../hooks/artists';
+import {
+  useArtist,
+  useArtists,
+  useArtistTracks,
+} from '../hooks/useArtistsContainer';
 
 export const ArtistsContext = createContext();
 export const ArtistsContextProvider = ({ children }) => {

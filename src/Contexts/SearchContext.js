@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { useSearch } from '../hooks/search';
+import { useSearch } from '../hooks/useSearchContainer';
 
 export const SearchContext = createContext();
 export const SearchContextProvider = ({ query, children }) => {

@@ -12,8 +12,7 @@ import { stringToSlug } from '../../../../functions/stringToSlug';
 import { tileVariants } from '../../../../../Animations/animations';
 
 const PostTile = ({ post }) => {
-  const { coverImage, enName, artistsEnList, slug } = post;
-  const artistsString = artistsEnList.join(' & ');
+  const { coverImage, enName, artistsEnList, artistsString, slug } = post;
 
   return (
     <motion.div

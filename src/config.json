@@ -1,6 +1,101 @@
 {
-  "endpoints": {
-    "getLatestPosts": "https://dl2music.com/wp-json/wp/v2/posts",
-    "mediaBaseUrl": "https://dl.dl2music.com/"
+  "sliders": {
+    "homePromotions": {
+      "breakpoints": {
+        "'(min-width: 700px)'": {
+          "slides": {
+            "perView": 2.5,
+            "spacing": 5
+          }
+        },
+        "'(min-width: 1024px)'": {
+          "slides": {
+            "perView": 3.5,
+            "spacing": 15
+          }
+        }
+      },
+      "slides": {
+        "perView": 1.2
+      },
+      "loop": true
+    },
+    "homeFeaturedPlaylists": {
+      "breakpoints": {
+        "'(min-width: 580px)'": {
+          "slides": {
+            "perView": 3.5,
+            "spacing": 10
+          }
+        },
+        "'(min-width: 700px)'": {
+          "slides": {
+            "perView": 4.5,
+            "spacing": 15
+          }
+        },
+        "'(min-width: 1024px)'": {
+          "slides": {
+            "perView": 7.5,
+            "spacing": 20
+          }
+        }
+      },
+      "slides": {
+        "perView": 2.5,
+        "spacing": 10
+      }
+    },
+    "homeLatestTracks": {
+      "breakpoints": {
+        "'(min-width: 700px)'": {
+          "slides": {
+            "perView": 2.1,
+            "spacing": 5
+          }
+        },
+        "'(min-width: 1024px)'": {
+          "slides": {
+            "perView": 3.1,
+            "spacing": 15
+          }
+        },
+        "'(min-width: 1500px)'": {
+          "slides": {
+            "perView": 4,
+            "spacing": 15
+          }
+        }
+      },
+      "slides": {
+        "perView": 1.1
+      }
+    },
+    "homeFeaturedAlbums": {
+      "breakpoints": {
+        "'(min-width: 580px)'": {
+          "slides": {
+            "perView": 3.5,
+            "spacing": 10
+          }
+        },
+        "'(min-width: 700px)'": {
+          "slides": {
+            "perView": 4.5,
+            "spacing": 15
+          }
+        },
+        "'(min-width: 1024px)'": {
+          "slides": {
+            "perView": 7.5,
+            "spacing": 20
+          }
+        }
+      },
+      "slides": {
+        "perView": 2.3,
+        "spacing": 20
+      }
+    }
   }
 }

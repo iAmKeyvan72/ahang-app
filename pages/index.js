@@ -6,23 +6,12 @@ import Layout from '../src/Components/Layout/Layout';
 
 export const InitialHomepageDataContext = createContext();
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const initialPromotions = await api.getPromotions();
-  console.log('[getStaticProps] initialPromotions: ', initialPromotions);
   const initialSpecialPlaylists = await api.getSpecialPlaylists();
-  console.log(
-    '[getStaticProps] initialSpecialPlaylists: ',
-    initialSpecialPlaylists
-  );
   const initialSuggestionTracks = await api.getSuggestionTracks();
-  console.log(
-    '[getStaticProps] initialSuggestionTracks: ',
-    initialSuggestionTracks
-  );
   const initialLatestTracks = await api.getLatestTracks();
-  console.log('[getStaticProps] initialLatestTracks: ', initialLatestTracks);
-  const initialSpecialAlbums = await api.getSpecialAlbums();
-  console.log('[getStaticProps] initialSpecialAlbums: ', initialSpecialAlbums);
+  // const initialSpecialAlbums = await api.getSpecialAlbums();
 
   return {
     revalidate: 10,
@@ -31,17 +20,17 @@ export async function getStaticProps() {
       initialSpecialPlaylists,
       initialSuggestionTracks,
       initialLatestTracks,
-      initialSpecialAlbums,
+      // initialSpecialAlbums,
     },
   };
-}
+};
 
 const Homepage = ({
   initialPromotions,
   initialSpecialPlaylists,
   initialSuggestionTracks,
   initialLatestTracks,
-  initialSpecialAlbums,
+  // initialSpecialAlbums,
 }) => {
   return (
     <InitialHomepageDataContext.Provider
@@ -49,13 +38,15 @@ const Homepage = ({
         (initialPromotions,
         initialSpecialPlaylists,
         initialSuggestionTracks,
-        initialLatestTracks,
-        initialSpecialAlbums)
+        initialLatestTracks)
+        // initialSpecialAlbums
       }
     >
       <Layout page="homepage" />
     </InitialHomepageDataContext.Provider>
   );
 };
+
+// const Homepage = () => <Layout page="homepage" />;
 
 export default Homepage;

@@ -2,13 +2,13 @@
   "sliders": {
     "homePromotions": {
       "breakpoints": {
-        "'(min-width: 700px)'": {
+        "(min-width: 700px)": {
           "slides": {
             "perView": 2.5,
             "spacing": 5
           }
         },
-        "'(min-width: 1024px)'": {
+        "(min-width: 1024px)": {
           "slides": {
             "perView": 3.5,
             "spacing": 15
@@ -22,19 +22,19 @@
     },
     "homeFeaturedPlaylists": {
       "breakpoints": {
-        "'(min-width: 580px)'": {
+        "(min-width: 580px)": {
           "slides": {
             "perView": 3.5,
             "spacing": 10
           }
         },
-        "'(min-width: 700px)'": {
+        "(min-width: 700px)": {
           "slides": {
             "perView": 4.5,
             "spacing": 15
           }
         },
-        "'(min-width: 1024px)'": {
+        "(min-width: 1024px)": {
           "slides": {
             "perView": 7.5,
             "spacing": 20
@@ -48,19 +48,19 @@
     },
     "homeLatestTracks": {
       "breakpoints": {
-        "'(min-width: 700px)'": {
+        "(min-width: 700px)": {
           "slides": {
             "perView": 2.1,
             "spacing": 5
           }
         },
-        "'(min-width: 1024px)'": {
+        "(min-width: 1024px)": {
           "slides": {
             "perView": 3.1,
             "spacing": 15
           }
         },
-        "'(min-width: 1500px)'": {
+        "(min-width: 1500px)": {
           "slides": {
             "perView": 4,
             "spacing": 15
@@ -73,19 +73,19 @@
     },
     "homeFeaturedAlbums": {
       "breakpoints": {
-        "'(min-width: 580px)'": {
+        "(min-width: 580px)": {
           "slides": {
             "perView": 3.5,
             "spacing": 10
           }
         },
-        "'(min-width: 700px)'": {
+        "(min-width: 700px)": {
           "slides": {
             "perView": 4.5,
             "spacing": 15
           }
         },
-        "'(min-width: 1024px)'": {
+        "(min-width: 1024px)": {
           "slides": {
             "perView": 7.5,
             "spacing": 20

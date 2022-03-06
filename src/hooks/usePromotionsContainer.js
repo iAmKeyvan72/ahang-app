@@ -8,17 +8,19 @@ import { InitialHomepageDataContext } from '../../pages';
 import { stringToSlug } from '../Components/functions/stringToSlug';
 
 export const usePromotions = () => {
-  // const initialPromotions = useContext(InitialHomepageDataContext);
+  const { initialPromotions } = useContext(InitialHomepageDataContext);
 
-  // const { data, isLoading } = useQuery('promotions', api.getPromotions, {
-  //   initialData: initialPromotions,
-  // });
+  const { data, isLoading } = useQuery('promotions', api.getPromotions, {
+    initialData: initialPromotions,
+  });
 
-  const { data, isLoading } = useQuery('promotions', api.getPromotions);
+  // const { data, isLoading } = useQuery('promotions', api.getPromotions);
 
   let artistsEnList, artistsEnStr, slug, renderedData;
 
   if (isLoading) return { renderedData, isLoading };
+
+  console.log('data', data);
 
   renderedData = data.map((post) => {
     artistsEnStr = decodeURI(post.acf_fields.link_320)

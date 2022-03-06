@@ -34,13 +34,15 @@ const Homepage = ({
 }) => {
   return (
     <InitialHomepageDataContext.Provider
-    // value={
-    //   (initialPromotions,
-    //   initialSpecialPlaylists,
-    //   initialSuggestionTracks,
-    //   initialLatestTracks)
-    // initialSpecialAlbums
-    // }
+      value={
+        {
+          initialPromotions,
+          initialSpecialPlaylists,
+          initialSuggestionTracks,
+          initialLatestTracks,
+        }
+        // initialSpecialAlbums
+      }
     >
       <Layout page="homepage" />
     </InitialHomepageDataContext.Provider>

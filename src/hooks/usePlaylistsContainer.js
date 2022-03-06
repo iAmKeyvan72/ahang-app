@@ -11,17 +11,17 @@ export const useLatestPlaylists = () => {
 };
 
 export const useSpecialPlaylists = () => {
-  // const initialSpecialPlaylists = useContext(InitialHomepageDataContext);
-  // const { data, isLoading } = useQuery(
-  //   'specialPlaylists',
-  //   api.getSpecialPlaylists,
-  //   { initialData: initialSpecialPlaylists }
-  // );
-
+  const { initialSpecialPlaylists } = useContext(InitialHomepageDataContext);
   const { data, isLoading } = useQuery(
     'specialPlaylists',
-    api.getSpecialPlaylists
+    api.getSpecialPlaylists,
+    { initialData: initialSpecialPlaylists }
   );
+
+  // const { data, isLoading } = useQuery(
+  //   'specialPlaylists',
+  //   api.getSpecialPlaylists
+  // );
 
   let renderedData;
 

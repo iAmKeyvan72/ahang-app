@@ -7,19 +7,17 @@ import { InitialHomepageDataContext } from '../../pages';
 import { stringToSlug } from '../Components/functions/stringToSlug';
 
 export const useLatestTracks = () => {
-  // const initialLatestTracks = useContext(InitialHomepageDataContext);
+  const { initialLatestTracks } = useContext(InitialHomepageDataContext);
 
-  // const { data, isLoading } = useQuery('latestTracks', api.getLatestTracks, {
-  //   initialData: initialLatestTracks,
-  // });
+  const { data, isLoading } = useQuery('latestTracks', api.getLatestTracks, {
+    initialData: initialLatestTracks,
+  });
 
-  const { data, isLoading } = useQuery('latestTracks', api.getLatestTracks);
+  // const { data, isLoading } = useQuery('latestTracks', api.getLatestTracks);
 
   let artistsEnList, artistsEnStr, slug, renderedData;
 
   if (isLoading) return { renderedData, isLoading };
-
-  console.log(data);
 
   renderedData = data.map((post) => {
     artistsEnStr = decodeURI(post.acf_fields.link_320)
@@ -44,20 +42,20 @@ export const useLatestTracks = () => {
 };
 
 export const useSuggestionTracks = () => {
-  // const initialSuggestionTracks = useContext(InitialHomepageDataContext);
-
-  // const { data, isLoading } = useQuery(
-  //   'suggestionTracks',
-  //   api.getSuggestionTracks,
-  //   {
-  //     initialData: initialSuggestionTracks,
-  //   }
-  // );
+  const { initialSuggestionTracks } = useContext(InitialHomepageDataContext);
 
   const { data, isLoading } = useQuery(
     'suggestionTracks',
-    api.getSuggestionTracks
+    api.getSuggestionTracks,
+    {
+      initialData: initialSuggestionTracks,
+    }
   );
+
+  // const { data, isLoading } = useQuery(
+  //   'suggestionTracks',
+  //   api.getSuggestionTracks
+  // );
 
   let artistsEnList, artistsEnStr, slug, renderedData;
 

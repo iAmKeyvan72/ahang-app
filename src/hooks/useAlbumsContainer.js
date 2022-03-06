@@ -11,26 +11,31 @@ export const useLatestAlbums = () => {
 };
 
 export const useSpecialAlbums = () => {
-  const initialSpecialAlbums = useContext(InitialHomepageDataContext);
+  // const initialSpecialAlbums = useContext(InitialHomepageDataContext);
 
-  const { data, isLoading } = useQuery('SpecialAlbums', api.getSpecialAlbums, {
-    initialData: initialSpecialAlbums,
-  });
+  // const { data, isLoading } = useQuery('SpecialAlbums', api.getSpecialAlbums, {
+  //   initialData: initialSpecialAlbums,
+  // });
+
+  const { data, isLoading } = useQuery('SpecialAlbums', api.getSpecialAlbums);
 
   let artistsEnList, artistsEnStr, slug, renderedData;
 
   if (isLoading) return { renderedData, isLoading };
 
   renderedData = data.map((post) => {
-    artistsEnStr = decodeURI(post.acf.link_320).split('/')[2].split(' - ')[0];
+    artistsEnStr = decodeURI(post.acf_fields.link_320)
+      .split('/')[2]
+      .split(' - ')[0];
     artistsEnList = artistsEnStr.split(' & ');
 
-    slug = '/albums/' + stringToSlug(`${artistsEnStr} ${post.acf.title_en}`);
+    slug =
+      '/albums/' + stringToSlug(`${artistsEnStr} ${post.acf_fields.title_en}`);
 
     return {
       id: post.id,
-      enName: post.acf.title_en,
-      coverImage: post.acf.original_cover.sizes.medium_large,
+      enName: post.acf_fields.title_en,
+      coverImage: post.acf_fields.original_cover.sizes.medium_large,
       artistsEnList,
       artistsEnStr,
       slug,

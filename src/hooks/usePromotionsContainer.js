@@ -8,26 +8,31 @@ import { InitialHomepageDataContext } from '../../pages';
 import { stringToSlug } from '../Components/functions/stringToSlug';
 
 export const usePromotions = () => {
-  const initialPromotions = useContext(InitialHomepageDataContext);
+  // const initialPromotions = useContext(InitialHomepageDataContext);
 
-  const { data, isLoading } = useQuery('promotions', api.getPromotions, {
-    initialData: initialPromotions,
-  });
+  // const { data, isLoading } = useQuery('promotions', api.getPromotions, {
+  //   initialData: initialPromotions,
+  // });
+
+  const { data, isLoading } = useQuery('promotions', api.getPromotions);
 
   let artistsEnList, artistsEnStr, slug, renderedData;
 
   if (isLoading) return { renderedData, isLoading };
 
   renderedData = data.map((post) => {
-    artistsEnStr = decodeURI(post.acf.link_320).split('/')[2].split(' - ')[0];
+    artistsEnStr = decodeURI(post.acf_fields.link_320)
+      .split('/')[2]
+      .split(' - ')[0];
     artistsEnList = artistsEnStr.split(' & ');
 
-    slug = '/tracks/' + stringToSlug(`${artistsEnStr} ${post.acf.title_en}`);
+    // slug = '/tracks/' + stringToSlug(`${artistsEnStr} ${post.acf_fields.title_en}`);
+    slug = '/tracks/' + post.id;
 
     return {
       id: post.id,
-      enName: post.acf.title_en,
-      coverImage: post.acf.original_cover.sizes.medium_large,
+      enName: post.acf_fields.title_en,
+      coverImage: post.acf_fields.original_cover.sizes.medium_large,
       artistsEnList,
       artistsEnStr,
       slug,

@@ -31,10 +31,10 @@ export const SuggestionTracksContextProvider = ({ children }) => {
 
 export const TrackContext = createContext();
 export const TrackContextProvider = ({ id, children }) => {
-  const { data, isLoading } = useTrack(id);
+  const { renderedData, isLoading } = useTrack(id);
 
   return (
-    <TrackContext.Provider value={(data, isLoading)}>
+    <TrackContext.Provider value={{ renderedData, isLoading }}>
       {children}
     </TrackContext.Provider>
   );

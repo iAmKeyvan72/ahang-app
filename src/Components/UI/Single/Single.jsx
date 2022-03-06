@@ -10,18 +10,23 @@ import {
   NextTracksContextProvider,
   TrackContextProvider,
 } from '../../../Contexts/TracksContext';
+import { useTrack } from '../../../hooks/useTracksContainer';
 
 const Single = () => {
   const router = useRouter();
-  const { trackId } = router.query;
+  const { query, isReady } = router;
+
+  if (!isReady) return <div>Loading ...</div>;
+
+  const { trackId } = query;
 
   return (
     <motion.div className={classes.container}>
       <TrackContextProvider id={trackId}>
-        <NextTracksContextProvider id={trackId}>
-          <MusicPlayerContainer />
-          <NextUpListContainer />
-        </NextTracksContextProvider>
+        {/* <NextTracksContextProvider id={trackId}> */}
+        <MusicPlayerContainer />
+        {/* <NextUpListContainer /> */}
+        {/* </NextTracksContextProvider> */}
       </TrackContextProvider>
     </motion.div>
   );

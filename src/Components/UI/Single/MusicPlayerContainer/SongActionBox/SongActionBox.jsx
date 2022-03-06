@@ -65,9 +65,7 @@ const actionsReducer = (state, action) => {
   }
 };
 
-const SongActionBox = () => {
-  const { data: track, isLoading } = useContext(TrackContext);
-
+const SongActionBox = ({ track }) => {
   const { artistsEnList, videoUrl, lyrics } = track;
 
   const [actions, dispatch] = useReducer(actionsReducer, {

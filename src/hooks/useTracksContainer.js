@@ -7,26 +7,33 @@ import { InitialHomepageDataContext } from '../../pages';
 import { stringToSlug } from '../Components/functions/stringToSlug';
 
 export const useLatestTracks = () => {
-  const initialLatestTracks = useContext(InitialHomepageDataContext);
+  // const initialLatestTracks = useContext(InitialHomepageDataContext);
 
-  const { data, isLoading } = useQuery('latestTracks', api.getLatestTracks, {
-    initialData: initialLatestTracks,
-  });
+  // const { data, isLoading } = useQuery('latestTracks', api.getLatestTracks, {
+  //   initialData: initialLatestTracks,
+  // });
+
+  const { data, isLoading } = useQuery('latestTracks', api.getLatestTracks);
 
   let artistsEnList, artistsEnStr, slug, renderedData;
 
   if (isLoading) return { renderedData, isLoading };
 
+  console.log(data);
+
   renderedData = data.map((post) => {
-    artistsEnStr = decodeURI(post.acf.link_320).split('/')[2].split(' - ')[0];
+    artistsEnStr = decodeURI(post.acf_fields.link_320)
+      .split('/')[2]
+      .split(' - ')[0];
     artistsEnList = artistsEnStr.split(' & ');
 
-    slug = '/tracks/' + stringToSlug(`${artistsEnStr} ${post.acf.title_en}`);
+    // slug = '/tracks/' + stringToSlug(`${artistsEnStr} ${post.acf_fields.title_en}`);
+    slug = '/tracks/' + post.id;
 
     return {
       id: post.id,
-      enName: post.acf.title_en,
-      coverImage: post.acf.original_cover.sizes.medium_large,
+      enName: post.acf_fields.title_en,
+      coverImage: post.acf_fields.original_cover.sizes.medium_large,
       artistsEnList,
       artistsEnStr,
       slug,
@@ -37,29 +44,38 @@ export const useLatestTracks = () => {
 };
 
 export const useSuggestionTracks = () => {
-  const initialSuggestionTracks = useContext(InitialHomepageDataContext);
+  // const initialSuggestionTracks = useContext(InitialHomepageDataContext);
+
+  // const { data, isLoading } = useQuery(
+  //   'suggestionTracks',
+  //   api.getSuggestionTracks,
+  //   {
+  //     initialData: initialSuggestionTracks,
+  //   }
+  // );
 
   const { data, isLoading } = useQuery(
     'suggestionTracks',
-    api.getSuggestionTracks,
-    {
-      initialData: initialSuggestionTracks,
-    }
+    api.getSuggestionTracks
   );
 
-  let renderedData, artistsEnStr, artistsEnList, slug;
+  let artistsEnList, artistsEnStr, slug, renderedData;
+
   if (isLoading) return { renderedData, isLoading };
 
   renderedData = data.map((post) => {
-    artistsEnStr = decodeURI(post.acf.link_320).split('/')[2].split(' - ')[0];
+    artistsEnStr = decodeURI(post.acf_fields.link_320)
+      .split('/')[2]
+      .split(' - ')[0];
     artistsEnList = artistsEnStr.split(' & ');
 
-    slug = '/tracks/' + stringToSlug(`${artistsEnStr} ${post.acf.title_en}`);
+    // slug = '/tracks/' + stringToSlug(`${artistsEnStr} ${post.acf_fields.title_en}`);
+    slug = '/tracks/' + post.id;
 
     return {
       id: post.id,
-      enName: post.acf.title_en,
-      coverImage: post.acf.original_cover.sizes.medium_large,
+      enName: post.acf_fields.title_en,
+      coverImage: post.acf_fields.original_cover.sizes.medium_large,
       artistsEnList,
       artistsEnStr,
       slug,
@@ -70,7 +86,37 @@ export const useSuggestionTracks = () => {
 };
 
 export const useTrack = (id) => {
-  return useQuery(['track', id], api.getTrack);
+  // const initialSuggestionTracks = useContext(InitialHomepageDataContext);
+
+  // const { data, isLoading } = useQuery(['track', id], api.getTrack, {
+  //   initialData: initialSuggestionTracks,
+  // });
+
+  const { data, isLoading } = useQuery(['track', id], () => api.getTrack(id));
+
+  let artistsEnList, artistsEnStr, slug, renderedData;
+
+  if (isLoading) return { renderedData, isLoading };
+
+  artistsEnStr = decodeURI(data.acf_fields.link_320)
+    .split('/')[2]
+    .split(' - ')[0];
+  artistsEnList = artistsEnStr.split(' & ');
+
+  // slug = '/tracks/' + stringToSlug(`${artistsEnStr} ${data.acf_fields.title_en}`);
+  slug = '/tracks/' + data.id;
+
+  renderedData = {
+    id: data.id,
+    enName: data.acf_fields.title_en,
+    coverImage: data.acf_fields.original_cover.sizes.medium_large,
+    artistsEnList,
+    artistsEnStr,
+    slug,
+    liked: false,
+  };
+
+  return { renderedData, isLoading };
 };
 
 export const useNextTracks = (id) => {

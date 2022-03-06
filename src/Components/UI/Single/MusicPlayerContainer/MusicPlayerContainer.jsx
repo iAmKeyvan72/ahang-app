@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 
 import classes from './MusicPlayerContainer.module.css';
@@ -9,39 +9,46 @@ import SongActionBox from './SongActionBox/SongActionBox';
 import TotalPlayer from '../../Shared/TotalPlayer/TotalPlayer';
 
 import { mainImageVariants } from '../../../../Animations/animations';
+import { TrackContext } from '../../../../Contexts/TracksContext';
 
 const MusicPlayerContainer = () => {
-  const { data: track, isLoading } = useContext(TrackContext);
+  const { renderedData: track, isLoading } = useContext(TrackContext);
 
-  const { artistsEnList, enName, coverImage } = track;
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
 
-  const artistEnStr = artistsEnList.join(' & ');
+  const { coverImage, enName, artistsEnStr } = track;
 
   return (
     <div className={classes.musicPlayerContainer}>
-      <div className={classes.contentsWrapper}>
-        <motion.div
-          variants={mainImageVariants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          className={classes.coverContainer}
-        >
-          <DynamicShadowImage
-            src={coverImage}
-            alt={`${artistEnStr} - ${enName}`}
-            width={400}
-            height={400}
-            layout="responsive"
-          />
-        </motion.div>
+      {isLoading ? (
+        <div>Loading ...</div>
+      ) : (
+        <div className={classes.contentsWrapper}>
+          <motion.div
+            variants={mainImageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className={classes.coverContainer}
+          >
+            <DynamicShadowImage
+              src={coverImage}
+              alt={`${artistsEnStr} - ${enName}`}
+              width={400}
+              height={400}
+              layout="responsive"
+            />
+          </motion.div>
 
-        <SongInfoDlFav />
+          <SongInfoDlFav track={track} />
 
-        <TotalPlayer currPost={currPost} nextUps={nextUps} />
+          {/* <TotalPlayer currPost={currPost} nextUps={nextUps} /> */}
 
-        <SongActionBox />
-      </div>
+          <SongActionBox track={track} />
+        </div>
+      )}
     </div>
   );
 };

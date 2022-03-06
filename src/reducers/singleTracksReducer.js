@@ -3,21 +3,23 @@ import { stringToSlug } from '../Components/functions/stringToSlug';
 const trackListBuilder = (list) => {
   let finalTrackList = [];
   list.map((track) => {
-    const artistsString = decodeURI(track.acf.link_320)
+    const artistsString = decodeURI(track.acf_fields.link_320)
       .split('/')[2]
       .split(' - ')[0];
 
     let newTrackObj = {
       id: track.id,
-      faName: track.acf.title_fa,
-      enName: track.acf.title_en,
-      coverImage: track.acf.original_cover.url,
-      link320: track.acf.link_320,
-      link128: track.acf.link_128,
-      videoUrl: track.acf.video_post,
+      faName: track.acf_fields.title_fa,
+      enName: track.acf_fields.title_en,
+      coverImage: track.acf_fields.original_cover.url,
+      link320: track.acf_fields.link_320,
+      link128: track.acf_fields.link_128,
+      videoUrl: track.acf_fields.video_post,
       artistsFaList: [],
       artistsEnList: artistsString.split(' & '),
-      slug: '/tracks/' + stringToSlug(`${artistsString} ${track.acf.title_en}`),
+      slug:
+        '/tracks/' +
+        stringToSlug(`${artistsString} ${track.acf_fields.title_en}`),
       liked: false,
     };
     finalTrackList.push(newTrackObj);

@@ -11,9 +11,14 @@ import {
 } from '../../../../Animations/animations';
 import { Reorder } from 'framer-motion';
 import { mdiDrag } from '@mdi/js';
+import { useNextTracks } from '../../../../hooks/useTracksContainer';
 
-const NextUpListContainer = ({ posts }) => {
-  const [nextUps, setNextUps] = useState(posts);
+const NextUpListContainer = ({ trackId }) => {
+  // const [nextUps, setNextUps] = useState(posts);
+
+  const { data, isLoading } = useNextTracks(trackId);
+
+  return <div>next ups</div>;
 
   return (
     <div className={classes.nextUpSongsContainer}>

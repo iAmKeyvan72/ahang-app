@@ -1,36 +1,42 @@
 import axios from 'axios';
 
+export const REQUEST_STATUS = {
+  LOADING: 'loading',
+  SUCCEEDED: 'succeeded',
+  FAILED: 'failed',
+};
+
 const client = axios.create({
   baseURL: 'https://musicisho.com/wp-json/wp/v2/',
 });
 
 export const getLatestTracks = async () => {
   console.log('GET LatestTracks api call');
-  const { data } = await client.get('posts');
+  const { data } = await client.get('posts?categories_exclude=36');
   return data;
 };
 
 export const getSuggestionTracks = async () => {
   console.log('GET SuggestionTracks api call');
-  const { data } = await client.get('posts');
+  const { data } = await client.get('posts?categories_exclude=36');
   return data;
 };
 
-export const getTrack = async (_, id) => {
-  console.log('GET Track api call');
-  const { data } = await client.get(`posts/${id}`);
+export const getTrack = async (id) => {
+  console.log('GET Track api call', id);
+  const { data } = await client.get(`/posts/${id}`);
   return data;
 };
 
 export const getNextTracks = async (_, id) => {
   console.log('GET NextTracks api call');
-  const { data } = await client.get('posts');
+  const { data } = await client.get('posts?categories_exclude=36');
   return data;
 };
 
 export const getPromotions = async () => {
   console.log('GET Promotions api call');
-  const { data } = await client.get('/posts?sticky=true&categories=2');
+  const { data } = await client.get('posts?sticky=true&categories=2');
   return data;
 };
 
